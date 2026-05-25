@@ -8,6 +8,7 @@ on:
   push:
     paths:
       - 'scripts/fetch_ledger.py'
+      - 'scripts/update_readme.py'
       - '.github/workflows/fetch-ledger.yml'
 
 permissions:
@@ -48,17 +49,21 @@ jobs:
         run: |
           python scripts/generate_chart.py
 
+      - name: Refresh README metrics
+        run: |
+          python scripts/update_readme.py
+
       - name: Commit and push changes
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if [ -z "$(git status --porcelain data/)" ]; then
+          if [ -z "$(git status --porcelain data/ README.md)" ]; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git add data/
+          git add data/ README.md
           # Build a concise commit message from state.json
           run_iso=$(python -c "import json; print(json.load(open('data/state.json')).get('last_run_utc',''))")
           entries=$(python -c "import json; print(json.load(open('data/state.json')).get('entry_count',''))")

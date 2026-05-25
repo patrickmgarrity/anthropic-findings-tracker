@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""
+Rewrite the metrics block in README.md from the data/ snapshot.
+
+Reads:
+  data/advisories.sqlite   -- advisories + changes tables written by fetch_ledger.py
+  data/state.json          -- last_change_utc (set when a run produces new/updated rows)
+
+Updates README.md in place between the markers:
+  <!-- METRICS:START -->
+  <!-- METRICS:END -->
+
+If README.md does not exist, a minimal one is created. If the markers are
+missing, the block is appended.
+
+Standard library only.
+"""
+
+from __future__ import annotations
+
+import datetime as dt
+import json
+import re
+import sqlite3
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+README_PATH = ROOT / "README.md"
+SQLITE_PATH = DATA_DIR / "advisories.sqlite"
+STATE_PATH = DATA_DIR / "state.json"
+
+START_MARKER = "<!-- METRICS:START -->"
+END_MARKER = "<!-- METRICS:END -->"
+
+
+def days_since_last_change(state: dict, now: dt.datetime) -> str:
+    last = state.get("last_change_utc")
+    if not last:
+        return "—"
+    try:
+        last_dt = dt.datetime.fromisoformat(last)
+    except ValueError:
+        return "—"
+    if last_dt.tzinfo is None:
+        last_dt = last_dt.replace(tzinfo=dt.timezone.utc)
+    return str(max(0, (now - last_dt).days))
+
+
+def load_state() -> dict:
+    if not STATE_PATH.exists():
+        return {}
+    try:
+        return json.loads(STATE_PATH.read_text())
+    except json.JSONDecodeError:
+        return {}
+
+
+def query_metrics(now: dt.datetime) -> tuple[int, int, int]:
+    """Return (total_findings, added_7d, fixed_7d)."""
+    # "Added" is keyed on upstream's committed_at (the day the ledger entry
+    # was published) rather than our changes.observed_utc, so a cold-start
+    # backfill doesn't report every historical entry as added today.
+    # "Fixed" has to come from the changes table — a status transition isn't
+    # recoverable from current state alone.
+    seven_days_ago_date = (now.date() - dt.timedelta(days=7)).isoformat()
+    seven_days_ago_iso = (now - dt.timedelta(days=7)).isoformat(timespec="seconds")
+    conn = sqlite3.connect(SQLITE_PATH)
+    try:
+        total = conn.execute("SELECT COUNT(*) FROM advisories").fetchone()[0]
+        added = conn.execute(
+            "SELECT COUNT(*) FROM advisories WHERE committed_at >= ?",
+            (seven_days_ago_date,),
+        ).fetchone()[0]
+        # COUNT(DISTINCT hash) so a record that flipped to fixed and then had
+        # an unrelated re-edit isn't double-counted.
+        fixed = conn.execute(
+            "SELECT COUNT(DISTINCT hash) FROM changes "
+            "WHERE change_kind = 'updated' AND field = 'status' "
+            "AND new_value = 'fixed' AND observed_utc >= ?",
+            (seven_days_ago_iso,),
+        ).fetchone()[0]
+    finally:
+        conn.close()
+    return total, added, fixed
+
+
+def render_block(days: str, added_7d: int, fixed_7d: int, total: int) -> str:
+    return (
+        f"{START_MARKER}\n"
+        f"| Metric | Value |\n"
+        f"| --- | ---: |\n"
+        f"| Days since last change | {days} |\n"
+        f"| Findings added (last 7 days) | {added_7d:,} |\n"
+        f"| Findings fixed (last 7 days) | {fixed_7d:,} |\n"
+        f"| Total findings (all-time) | {total:,} |\n"
+        f"{END_MARKER}"
+    )
+
+
+def splice_block(existing: str, block: str) -> str:
+    pattern = re.compile(
+        re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER),
+        re.DOTALL,
+    )
+    if pattern.search(existing):
+        return pattern.sub(block, existing)
+    return existing.rstrip() + "\n\n" + block + "\n"
+
+
+def default_readme(block: str) -> str:
+    return (
+        "# Anthropic Mythos Findings Tracker\n"
+        "\n"
+        "Mirrors the public Anthropic Mythos disclosure ledger at\n"
+        "<https://red.anthropic.com/2026/cvd/> into versioned CSV/JSONL/SQLite\n"
+        "snapshots under `data/`. The metrics below are regenerated each run.\n"
+        "\n"
+        f"{block}\n"
+    )
+
+
+def main() -> int:
+    if not SQLITE_PATH.exists():
+        print(
+            f"error: {SQLITE_PATH} does not exist; run scripts/fetch_ledger.py first.",
+            file=sys.stderr,
+        )
+        return 1
+
+    now = dt.datetime.now(dt.timezone.utc)
+    state = load_state()
+    total, added_7d, fixed_7d = query_metrics(now)
+    block = render_block(
+        days_since_last_change(state, now),
+        added_7d,
+        fixed_7d,
+        total,
+    )
+
+    if README_PATH.exists():
+        README_PATH.write_text(splice_block(README_PATH.read_text(), block))
+    else:
+        README_PATH.write_text(default_readme(block))
+
+    print(
+        f"updated {README_PATH} "
+        f"(total={total:,} added_7d={added_7d:,} fixed_7d={fixed_7d:,})"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
