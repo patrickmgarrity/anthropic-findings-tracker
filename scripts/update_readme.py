@@ -57,8 +57,8 @@ def load_state() -> dict:
         return {}
 
 
-def query_metrics(now: dt.datetime) -> tuple[int, int, int]:
-    """Return (total_findings, added_7d, fixed_7d)."""
+def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
+    """Return (total_findings, added_7d, changed_7d, fixed_7d)."""
     # "Added" is keyed on upstream's committed_at (the day the ledger entry
     # was published) rather than our changes.observed_utc, so a cold-start
     # backfill doesn't report every historical entry as added today.
@@ -73,26 +73,42 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int]:
             "SELECT COUNT(*) FROM advisories WHERE committed_at >= ?",
             (seven_days_ago_date,),
         ).fetchone()[0]
-        # COUNT(DISTINCT hash) so a record that flipped to fixed and then had
-        # an unrelated re-edit isn't double-counted.
-        fixed = conn.execute(
+        # "Changed" = distinct findings that had at least one field updated
+        # in the window. Excludes brand-new arrivals (already in "added") so
+        # the two metrics don't overlap.
+        changed = conn.execute(
             "SELECT COUNT(DISTINCT hash) FROM changes "
-            "WHERE change_kind = 'updated' AND field = 'status' "
-            "AND new_value = 'fixed' AND observed_utc >= ?",
+            "WHERE change_kind = 'updated' AND observed_utc >= ?",
+            (seven_days_ago_iso,),
+        ).fetchone()[0]
+        # A finding counts as "fixed in the window" if we observed it
+        # entering the fixed state during the window — either an existing
+        # record's status flipped to 'fixed', OR a brand-new record arrived
+        # already at status='fixed' (the more common case for backfilled or
+        # late-revealed entries that were already patched upstream).
+        # COUNT(DISTINCT hash) dedupes both shapes.
+        fixed = conn.execute(
+            "SELECT COUNT(DISTINCT c.hash) FROM changes c "
+            "JOIN advisories a ON a.hash = c.hash "
+            "WHERE c.observed_utc >= ? AND ("
+            "  (c.change_kind = 'updated' AND c.field = 'status' AND c.new_value = 'fixed')"
+            "  OR (c.change_kind = 'new' AND a.status = 'fixed')"
+            ")",
             (seven_days_ago_iso,),
         ).fetchone()[0]
     finally:
         conn.close()
-    return total, added, fixed
+    return total, added, changed, fixed
 
 
-def render_block(days: str, added_7d: int, fixed_7d: int, total: int) -> str:
+def render_block(days: str, added_7d: int, changed_7d: int, fixed_7d: int, total: int) -> str:
     return (
         f"{START_MARKER}\n"
         f"| Metric | Value |\n"
         f"| --- | ---: |\n"
         f"| Days since last change | {days} |\n"
         f"| Findings added (last 7 days) | {added_7d:,} |\n"
+        f"| Findings changed (last 7 days) | {changed_7d:,} |\n"
         f"| Findings fixed (last 7 days) | {fixed_7d:,} |\n"
         f"| Total findings (all-time) | {total:,} |\n"
         f"{END_MARKER}"
@@ -131,10 +147,11 @@ def main() -> int:
 
     now = dt.datetime.now(dt.timezone.utc)
     state = load_state()
-    total, added_7d, fixed_7d = query_metrics(now)
+    total, added_7d, changed_7d, fixed_7d = query_metrics(now)
     block = render_block(
         days_since_last_change(state, now),
         added_7d,
+        changed_7d,
         fixed_7d,
         total,
     )
@@ -146,7 +163,7 @@ def main() -> int:
 
     print(
         f"updated {README_PATH} "
-        f"(total={total:,} added_7d={added_7d:,} fixed_7d={fixed_7d:,})"
+        f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} fixed_7d={fixed_7d:,})"
     )
     return 0
 
