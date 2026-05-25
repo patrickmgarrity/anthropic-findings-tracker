@@ -3,11 +3,11 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- METRICS:START -->
 | Metric | Value |
 | --- | ---: |
-| Days since last change | 0 |
+| Total findings (all-time) | 1,611 |
 | Findings added (last 7 days) | 1,026 |
 | Findings changed (last 7 days) | 0 |
 | Findings fixed (last 7 days) | 27 |
-| Total findings (all-time) | 1,611 |
+| Days since last change | 0 |
 <!-- METRICS:END -->
 
 ![Anthropic Findings Over Time](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/cumulative.png)

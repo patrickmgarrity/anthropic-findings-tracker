@@ -106,11 +106,11 @@ def render_block(days: str, added_7d: int, changed_7d: int, fixed_7d: int, total
         f"{START_MARKER}\n"
         f"| Metric | Value |\n"
         f"| --- | ---: |\n"
-        f"| Days since last change | {days} |\n"
+        f"| Total findings (all-time) | {total:,} |\n"
         f"| Findings added (last 7 days) | {added_7d:,} |\n"
         f"| Findings changed (last 7 days) | {changed_7d:,} |\n"
         f"| Findings fixed (last 7 days) | {fixed_7d:,} |\n"
-        f"| Total findings (all-time) | {total:,} |\n"
+        f"| Days since last change | {days} |\n"
         f"{END_MARKER}"
     )
 
