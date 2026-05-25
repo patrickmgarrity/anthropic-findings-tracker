@@ -11,3 +11,5 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- METRICS:END -->
 
 ![Anthropic Findings Over Time](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/cumulative.png)
+
+![Anthropic Findings by Status](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/status_pie.png)

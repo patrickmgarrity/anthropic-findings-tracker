@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as dt
+import math
 import sys
 from collections import Counter
 from pathlib import Path
@@ -32,6 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CSV = ROOT / "data" / "advisories.csv"
 DEFAULT_SVG = ROOT / "data" / "cumulative.svg"
+DEFAULT_STATUS_SVG = ROOT / "data" / "status_pie.svg"
 
 
 # --------------------------------------------------------------------------- #
@@ -77,6 +79,26 @@ def load_cumulative_series(
     return cumulative
 
 
+def load_status_counts(csv_path: Path) -> list[tuple[str, int]]:
+    """
+    Read the CSV and return a list of (status, count) pairs sorted by count
+    descending (ties broken by label). Empty/missing values are bucketed as
+    'unknown' so every finding ends up in exactly one slice.
+    """
+    counts: Counter[str] = Counter()
+    with csv_path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if "status" not in (reader.fieldnames or []):
+            raise SystemExit(
+                f"CSV {csv_path} does not contain a 'status' column; "
+                "regenerate it with scripts/fetch_ledger.py first."
+            )
+        for row in reader:
+            raw = (row.get("status") or "").strip().lower()
+            counts[raw or "unknown"] += 1
+    return sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+
+
 # --------------------------------------------------------------------------- #
 # SVG rendering                                                               #
 # --------------------------------------------------------------------------- #
@@ -96,6 +118,15 @@ THEMES = {
             "patched":   {"line": "#3a7bd5", "fill": "#3a7bd522", "dot": "#3a7bd5"},
             "released":  {"line": "#2ea043", "fill": "#2ea04322", "dot": "#2ea043"},
         },
+        # Status slice colors. Known statuses get a stable hue; any new
+        # status the ledger introduces falls back to the rotating palette
+        # below so the chart still renders without code changes.
+        "status": {
+            "disclosed": "#3a7bd5",
+            "fixed":     "#2ea043",
+            "unknown":   "#9a9a9a",
+        },
+        "status_fallback": ["#c4452f", "#a14fb5", "#d98e00", "#0f9b8e", "#6b6b6b"],
     },
     "dark": {
         "bg":     "#0f0f0f",
@@ -108,6 +139,12 @@ THEMES = {
             "patched":   {"line": "#6aa9ff", "fill": "#6aa9ff26", "dot": "#6aa9ff"},
             "released":  {"line": "#4ade80", "fill": "#4ade8026", "dot": "#4ade80"},
         },
+        "status": {
+            "disclosed": "#6aa9ff",
+            "fixed":     "#4ade80",
+            "unknown":   "#6e6e6e",
+        },
+        "status_fallback": ["#ff6f5e", "#c084fc", "#fbbf24", "#22d3ee", "#94a3b8"],
     },
 }
 
@@ -421,6 +458,208 @@ def render_svg(
     return svg
 
 
+def _status_color(theme_colors: dict, label: str, fallback_index: int) -> str:
+    """Return the slice color for a status label, falling back to a rotating
+    palette for any status not in the theme's known-status map."""
+    known = theme_colors["status"]
+    if label in known:
+        return known[label]
+    palette = theme_colors["status_fallback"]
+    return palette[fallback_index % len(palette)]
+
+
+def render_status_pie_svg(
+    counts: list[tuple[str, int]],
+    *,
+    width: int = 720,
+    height: int = 420,
+    title: str = "Anthropic Mythos ledger — findings by status",
+    theme: str = "dark",
+) -> str:
+    """Render a pie chart of findings grouped by status, with a legend."""
+    if theme not in THEMES:
+        raise SystemExit(f"Unknown theme {theme!r}; choose from {list(THEMES)}")
+    c = THEMES[theme]
+    if not counts:
+        raise SystemExit("No status data to plot.")
+
+    total = sum(n for _, n in counts)
+
+    # Layout: pie on the left, legend on the right.
+    pad_top = 56
+    pad_bottom = 24
+    pie_area_w = int(width * 0.55)
+    cx = pie_area_w / 2 + 20
+    cy = pad_top + (height - pad_top - pad_bottom) / 2
+    r = min(pie_area_w / 2 - 20, (height - pad_top - pad_bottom) / 2 - 8)
+
+    # Pie slices. SVG arcs are drawn in screen-space (y grows downward), so
+    # angles increase clockwise — that matches the natural reading direction.
+    slice_parts: list[str] = []
+    label_parts: list[str] = []
+    start_angle = -math.pi / 2  # start at 12 o'clock
+    fallback_idx = 0
+    legend_rows: list[tuple[str, str, int, float]] = []  # (label, color, count, pct)
+
+    for i, (label, n) in enumerate(counts):
+        frac = n / total if total else 0
+        sweep = frac * 2 * math.pi
+        end_angle = start_angle + sweep
+        color = _status_color(c, label, fallback_idx)
+        if label not in c["status"]:
+            fallback_idx += 1
+
+        # When a single slice is the whole pie, an arc with start==end draws
+        # nothing — emit a full circle instead.
+        if len(counts) == 1 or frac >= 0.999:
+            slice_parts.append(
+                f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{r:.2f}" '
+                f'fill="{color}" stroke="{c["bg"]}" stroke-width="2"/>'
+            )
+        else:
+            sx = cx + r * math.cos(start_angle)
+            sy = cy + r * math.sin(start_angle)
+            ex = cx + r * math.cos(end_angle)
+            ey = cy + r * math.sin(end_angle)
+            large = 1 if sweep > math.pi else 0
+            d = (
+                f"M {cx:.2f} {cy:.2f} "
+                f"L {sx:.2f} {sy:.2f} "
+                f"A {r:.2f} {r:.2f} 0 {large} 1 {ex:.2f} {ey:.2f} Z"
+            )
+            slice_parts.append(
+                f'<path d="{d}" fill="{color}" stroke="{c["bg"]}" stroke-width="2"/>'
+            )
+
+        # Inline percent labels for slices large enough to fit readable text.
+        if frac >= 0.04:
+            mid = start_angle + sweep / 2
+            lx = cx + r * 0.62 * math.cos(mid)
+            ly = cy + r * 0.62 * math.sin(mid)
+            label_parts.append(
+                f'<text x="{lx:.2f}" y="{ly + 4:.2f}" text-anchor="middle" '
+                f'fill="#ffffff" font-size="12" font-weight="700">'
+                f'{frac * 100:.1f}%</text>'
+            )
+
+        legend_rows.append((label, color, n, frac * 100))
+        start_angle = end_angle
+
+    # Legend: vertical list to the right of the pie.
+    legend_x = pie_area_w + 40
+    legend_y = pad_top + 6
+    legend_parts: list[str] = []
+    for label, color, n, pct in legend_rows:
+        legend_parts.append(
+            f'<rect x="{legend_x}" y="{legend_y - 10}" width="14" height="14" '
+            f'rx="2" ry="2" fill="{color}"/>'
+        )
+        legend_parts.append(
+            f'<text x="{legend_x + 22}" y="{legend_y + 1}" fill="{c["fg"]}" '
+            f'font-size="12" font-weight="600">{_xml_escape(label)}</text>'
+        )
+        legend_parts.append(
+            f'<text x="{legend_x + 22}" y="{legend_y + 18}" fill="{c["muted"]}" '
+            f'font-size="11">{n:,} ({pct:.1f}%)</text>'
+        )
+        legend_y += 38
+
+    generated_at = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    subtitle = f"{total:,} findings  ·  generated {generated_at}"
+
+    svg = f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}"
+     width="{width}" height="{height}"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect width="100%" height="100%" fill="{c["bg"]}"/>
+
+  <text x="24" y="26" fill="{c["fg"]}" font-size="16" font-weight="700">{_xml_escape(title)}</text>
+  <text x="24" y="44" fill="{c["muted"]}" font-size="11">{_xml_escape(subtitle)}</text>
+
+  {"".join(slice_parts)}
+  {"".join(label_parts)}
+  {"".join(legend_parts)}
+</svg>
+'''
+    return svg
+
+
+def render_status_pie_png(
+    counts: list[tuple[str, int]],
+    output: Path,
+    *,
+    title: str,
+    theme: str,
+) -> None:
+    """Optional: write a PNG status pie chart using matplotlib if installed."""
+    try:
+        import matplotlib
+
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise SystemExit(
+            "matplotlib is not installed; PNG output requires it. "
+            "Run `pip install matplotlib`, or pass --no-png to skip the PNG."
+        )
+
+    c = THEMES[theme]
+    total = sum(n for _, n in counts) or 1
+
+    labels = [label for label, _ in counts]
+    sizes = [n for _, n in counts]
+    colors: list[str] = []
+    fallback_idx = 0
+    for label in labels:
+        colors.append(_status_color(c, label, fallback_idx))
+        if label not in c["status"]:
+            fallback_idx += 1
+
+    plt.rcParams.update({
+        "figure.facecolor": c["bg"],
+        "axes.facecolor": c["bg"],
+        "text.color": c["fg"],
+    })
+
+    fig, ax = plt.subplots(figsize=(7.2, 4.2), dpi=150)
+    wedges, _ = ax.pie(
+        sizes,
+        colors=colors,
+        startangle=90,
+        counterclock=False,
+        wedgeprops={"edgecolor": c["bg"], "linewidth": 2},
+    )
+    # Inline percent labels (only for slices large enough to read).
+    for wedge, n in zip(wedges, sizes):
+        frac = n / total
+        if frac < 0.04:
+            continue
+        ang = (wedge.theta1 + wedge.theta2) / 2
+        x = 0.62 * math.cos(math.radians(ang))
+        y = 0.62 * math.sin(math.radians(ang))
+        ax.text(x, y, f"{frac * 100:.1f}%", ha="center", va="center",
+                color="#ffffff", fontsize=10, fontweight="bold")
+
+    ax.set_title(title, color=c["fg"], fontweight="bold", loc="left")
+    legend_labels = [
+        f"{label} — {n:,} ({n / total * 100:.1f}%)"
+        for label, n in counts
+    ]
+    ax.legend(
+        wedges,
+        legend_labels,
+        loc="center left",
+        bbox_to_anchor=(1.02, 0.5),
+        frameon=False,
+        fontsize=10,
+        labelcolor=c["fg"],
+    )
+    ax.set(aspect="equal")
+    fig.tight_layout()
+    fig.savefig(output, facecolor=c["bg"], bbox_inches="tight")
+    plt.close(fig)
+
+
 def _xml_escape(s: str) -> str:
     return (
         s.replace("&", "&amp;")
@@ -583,6 +822,14 @@ def main() -> int:
                         help="PNG output path (default: same as --output with .png extension)")
     parser.add_argument("--no-png", action="store_true",
                         help="Skip the PNG output (SVG only)")
+    parser.add_argument("--status-output", type=Path, default=DEFAULT_STATUS_SVG,
+                        help=f"Output SVG path for the status pie chart "
+                             f"(default: {DEFAULT_STATUS_SVG})")
+    parser.add_argument("--status-png", type=Path, default=None,
+                        help="PNG output path for the status pie chart "
+                             "(default: same as --status-output with .png extension)")
+    parser.add_argument("--no-status-pie", action="store_true",
+                        help="Skip the status pie chart")
     args = parser.parse_args()
 
     if not args.csv.exists():
@@ -648,6 +895,31 @@ def main() -> int:
         except SystemExit as e:
             # render_png raises SystemExit when matplotlib is missing.
             print(f"note: {e}", file=sys.stderr)
+
+    if not args.no_status_pie:
+        status_counts = load_status_counts(args.csv)
+        if status_counts:
+            status_title = "Anthropic Mythos ledger — findings by status"
+            status_svg = render_status_pie_svg(
+                status_counts, title=status_title, theme=args.theme,
+            )
+            args.status_output.parent.mkdir(parents=True, exist_ok=True)
+            args.status_output.write_text(status_svg, encoding="utf-8")
+            summary = ", ".join(f"{label}={n}" for label, n in status_counts)
+            print(f"wrote {args.status_output} ({summary})")
+
+            if not args.no_png:
+                status_png_path = (
+                    args.status_png or args.status_output.with_suffix(".png")
+                )
+                try:
+                    render_status_pie_png(
+                        status_counts, status_png_path,
+                        title=status_title, theme=args.theme,
+                    )
+                    print(f"wrote {status_png_path}")
+                except SystemExit as e:
+                    print(f"note: {e}", file=sys.stderr)
 
     return 0
 
