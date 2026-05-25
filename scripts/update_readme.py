@@ -57,10 +57,14 @@ def load_state() -> dict:
         return {}
 
 
-def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
-    """Return (total_findings, added_7d, changed_7d, fixed_7d).
+def query_metrics(now: dt.datetime) -> tuple[int, int, int, int, int, int]:
+    """Return (total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all).
 
-    All three windowed counts use changes.observed_utc — the timestamp of
+    `total` doubles as "findings added (all-time)" — every finding entered
+    the mirror via a `new` change at some point, so the two are identical
+    by construction; we report it once.
+
+    The 7-day windowed counts use changes.observed_utc — the timestamp of
     the run that first recorded the change in our mirror. This means a
     cold-start backfill will report every historical entry as "added" in
     the current window; the metric becomes meaningful as a measure of
@@ -98,21 +102,43 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
             ")",
             (seven_days_ago_iso,),
         ).fetchone()[0]
+        # All-time fixed: snapshot of how many findings currently sit at
+        # status='fixed'. Reads from advisories rather than changes so it
+        # reflects the current state, not the cumulative count of fix events.
+        fixed_all = conn.execute(
+            "SELECT COUNT(*) FROM advisories WHERE status = 'fixed'"
+        ).fetchone()[0]
+        # All-time changed: distinct findings that have ever had any field
+        # updated (excludes 'new' rows by definition of change_kind).
+        changed_all = conn.execute(
+            "SELECT COUNT(DISTINCT hash) FROM changes WHERE change_kind = 'updated'"
+        ).fetchone()[0]
     finally:
         conn.close()
-    return total, added, changed, fixed
+    return total, added, changed, fixed, fixed_all, changed_all
 
 
-def render_block(days: str, added_7d: int, changed_7d: int, fixed_7d: int, total: int) -> str:
+def render_block(
+    days: str,
+    added_7d: int,
+    changed_7d: int,
+    fixed_7d: int,
+    total: int,
+    fixed_all: int,
+    changed_all: int,
+) -> str:
+    # `total` == findings added all-time (every finding entered via a `new`
+    # change), so we use it directly in the all-time row's "added" cell.
     return (
         f"{START_MARKER}\n"
-        f"| Total findings (all-time) | Findings added (last 7 days) | Findings fixed (last 7 days) |\n"
-        f"| :---: | :---: | :---: |\n"
-        f"| {total:,} | {added_7d:,} | {fixed_7d:,} |\n"
+        f"|  | Findings added | Findings fixed | Findings changed |\n"
+        f"| :--- | :---: | :---: | :---: |\n"
+        f"| **All-time** | {total:,} | {fixed_all:,} | {changed_all:,} |\n"
+        f"| **Last 7 days** | {added_7d:,} | {fixed_7d:,} | {changed_7d:,} |\n"
         f"\n"
-        f"| Findings changed (last 7 days) | Days since last change |\n"
-        f"| :---: | :---: |\n"
-        f"| {changed_7d:,} | {days} |\n"
+        f"| Days since last change |\n"
+        f"| :---: |\n"
+        f"| {days} |\n"
         f"{END_MARKER}"
     )
 
@@ -149,13 +175,15 @@ def main() -> int:
 
     now = dt.datetime.now(dt.timezone.utc)
     state = load_state()
-    total, added_7d, changed_7d, fixed_7d = query_metrics(now)
+    total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all = query_metrics(now)
     block = render_block(
         days_since_last_change(state, now),
         added_7d,
         changed_7d,
         fixed_7d,
         total,
+        fixed_all,
+        changed_all,
     )
 
     if README_PATH.exists():
@@ -165,7 +193,8 @@ def main() -> int:
 
     print(
         f"updated {README_PATH} "
-        f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} fixed_7d={fixed_7d:,})"
+        f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} "
+        f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} changed_all={changed_all:,})"
     )
     return 0
 
