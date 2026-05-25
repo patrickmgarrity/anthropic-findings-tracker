@@ -4,7 +4,7 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 | Metric | Value |
 | --- | ---: |
 | Total findings (all-time) | 1,611 |
-| Findings added (last 7 days) | 1,026 |
+| Findings added (last 7 days) | 1,611 |
 | Findings changed (last 7 days) | 0 |
 | Findings fixed (last 7 days) | 27 |
 | Days since last change | 0 |

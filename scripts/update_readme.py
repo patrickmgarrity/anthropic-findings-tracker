@@ -58,20 +58,22 @@ def load_state() -> dict:
 
 
 def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
-    """Return (total_findings, added_7d, changed_7d, fixed_7d)."""
-    # "Added" is keyed on upstream's committed_at (the day the ledger entry
-    # was published) rather than our changes.observed_utc, so a cold-start
-    # backfill doesn't report every historical entry as added today.
-    # "Fixed" has to come from the changes table — a status transition isn't
-    # recoverable from current state alone.
-    seven_days_ago_date = (now.date() - dt.timedelta(days=7)).isoformat()
+    """Return (total_findings, added_7d, changed_7d, fixed_7d).
+
+    All three windowed counts use changes.observed_utc — the timestamp of
+    the run that first recorded the change in our mirror. This means a
+    cold-start backfill will report every historical entry as "added" in
+    the current window; the metric becomes meaningful as a measure of
+    upstream activity after the mirror has been running for a full week.
+    """
     seven_days_ago_iso = (now - dt.timedelta(days=7)).isoformat(timespec="seconds")
     conn = sqlite3.connect(SQLITE_PATH)
     try:
         total = conn.execute("SELECT COUNT(*) FROM advisories").fetchone()[0]
         added = conn.execute(
-            "SELECT COUNT(*) FROM advisories WHERE committed_at >= ?",
-            (seven_days_ago_date,),
+            "SELECT COUNT(*) FROM changes "
+            "WHERE change_kind = 'new' AND observed_utc >= ?",
+            (seven_days_ago_iso,),
         ).fetchone()[0]
         # "Changed" = distinct findings that had at least one field updated
         # in the window. Excludes brand-new arrivals (already in "added") so
