@@ -2,11 +2,11 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 
 <!-- METRICS:START -->
 | Total findings (all-time) | Findings added (last 7 days) | Findings fixed (last 7 days) |
-| ---: | ---: | ---: |
+| :---: | :---: | :---: |
 | 1,611 | 1,611 | 27 |
 
 | Findings changed (last 7 days) | Days since last change |
-| ---: | ---: |
+| :---: | :---: |
 | 0 | 0 |
 <!-- METRICS:END -->
 
