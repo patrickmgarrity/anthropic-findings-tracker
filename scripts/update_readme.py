@@ -106,13 +106,13 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
 def render_block(days: str, added_7d: int, changed_7d: int, fixed_7d: int, total: int) -> str:
     return (
         f"{START_MARKER}\n"
-        f"| Metric | Value |\n"
-        f"| --- | ---: |\n"
-        f"| Total findings (all-time) | {total:,} |\n"
-        f"| Findings added (last 7 days) | {added_7d:,} |\n"
-        f"| Findings changed (last 7 days) | {changed_7d:,} |\n"
-        f"| Findings fixed (last 7 days) | {fixed_7d:,} |\n"
-        f"| Days since last change | {days} |\n"
+        f"| Total findings (all-time) | Findings added (last 7 days) | Findings fixed (last 7 days) |\n"
+        f"| ---: | ---: | ---: |\n"
+        f"| {total:,} | {added_7d:,} | {fixed_7d:,} |\n"
+        f"\n"
+        f"| Findings changed (last 7 days) | Days since last change |\n"
+        f"| ---: | ---: |\n"
+        f"| {changed_7d:,} | {days} |\n"
         f"{END_MARKER}"
     )
 
