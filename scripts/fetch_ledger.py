@@ -434,7 +434,7 @@ def normalize(
         "claude_severity": entry.get("claude_severity") or "",
         "vendor_severity": entry.get("vendor_severity") or "",
         "maintainer_severity": entry.get("maintainer_severity") or "",
-        "status": entry.get("status") or "",
+        "status": entry.get("status") or "pre-disclosure",
         "reveal_tier": entry.get("reveal_tier") or "",
         "revealed": bool(entry.get("revealed")),
         "vendor_confirmed": bool(entry.get("vendor_confirmed")),
