@@ -3,8 +3,8 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- METRICS:START -->
 |  | Findings added | Findings fixed | Findings changed |
 | :--- | :---: | :---: | :---: |
-| **All-time** | 1,611 | 27 | 0 |
-| **Last 7 days** | 1,611 | 27 | 0 |
+| **All-time** | 1,611 | 27 | 15 |
+| **Last 7 days** | 1,611 | 27 | 15 |
 
 | Days since last change |
 | :---: |
