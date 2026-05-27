@@ -8,7 +8,7 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 
 | Days since last change |
 | :---: |
-| 0 |
+| 1 |
 <!-- METRICS:END -->
 
 ![Anthropic Findings Over Time](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/cumulative.png)
