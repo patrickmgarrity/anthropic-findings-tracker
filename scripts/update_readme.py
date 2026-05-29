@@ -6,12 +6,14 @@ Reads:
   data/advisories.sqlite   -- advisories + changes tables written by fetch_ledger.py
   data/state.json          -- last_change_utc (set when a run produces new/updated rows)
 
-Updates README.md in place between the markers:
-  <!-- METRICS:START -->
-  <!-- METRICS:END -->
+Updates README.md in place between two independent marker blocks:
+  <!-- METRICS:START -->     ... summary metrics ...      <!-- METRICS:END -->
+  <!-- DEADLINES:START -->   ... disclosure timeline ...  <!-- DEADLINES:END -->
 
-If README.md does not exist, a minimal one is created. If the markers are
-missing, the block is appended.
+The DEADLINES block lives next to the disclosure-deadline chart so the
+numbers sit with the picture they describe. If README.md does not exist, a
+minimal one is created. If a block's markers are missing, that block is
+appended.
 
 Standard library only.
 """
@@ -33,6 +35,8 @@ STATE_PATH = DATA_DIR / "state.json"
 
 START_MARKER = "<!-- METRICS:START -->"
 END_MARKER = "<!-- METRICS:END -->"
+DEADLINES_START = "<!-- DEADLINES:START -->"
+DEADLINES_END = "<!-- DEADLINES:END -->"
 
 
 def days_since_last_change(state: dict, now: dt.datetime) -> str:
@@ -216,13 +220,9 @@ def render_block(
     total: int,
     fixed_all: int,
     changed_all: int,
-    deadline_revealed: int,
-    deadline_not_revealed: int,
-    deadlines: dict[int, int],
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time row's "added" cell.
-    deadline_total = deadline_revealed + deadline_not_revealed
     return (
         f"{START_MARKER}\n"
         f"|  | Findings added | Findings fixed | Findings changed |\n"
@@ -233,29 +233,46 @@ def render_block(
         f"| Days since last change | Days since last addition |\n"
         f"| :---: | :---: |\n"
         f"| {days} | {days_since_addition} |\n"
-        f"\n"
-        f"| Disclosure deadline reached | Total | Revealed | Not yet revealed |\n"
-        f"| :--- | :---: | :---: | :---: |\n"
-        f"| **Findings** | {deadline_total:,} | {deadline_revealed:,} | {deadline_not_revealed:,} |\n"
-        f"\n"
-        f"| Disclosure deadlines expected | Next 1 day | Next 3 days | Next 7 days | Next 30 days |\n"
-        f"| :--- | :---: | :---: | :---: | :---: |\n"
-        f"| **Findings** | {deadlines[1]:,} | {deadlines[3]:,} | {deadlines[7]:,} | {deadlines[30]:,} |\n"
         f"{END_MARKER}"
     )
 
 
-def splice_block(existing: str, block: str) -> str:
+def render_deadlines_block(
+    deadline_revealed: int,
+    deadline_not_revealed: int,
+    deadlines: dict[int, int],
+) -> str:
+    """One consolidated table for the chart above: a disclosure-deadline
+    timeline running from deadlines already reached (split by whether the
+    finding has been revealed) through deadlines coming due. The "due within"
+    rows are cumulative -- each window includes the ones before it."""
+    return (
+        f"{DEADLINES_START}\n"
+        f"| Disclosure deadline | Findings |\n"
+        f"| :--- | :---: |\n"
+        f"| Reached — not yet revealed | {deadline_not_revealed:,} |\n"
+        f"| Reached — revealed | {deadline_revealed:,} |\n"
+        f"| Due within 1 day | {deadlines[1]:,} |\n"
+        f"| Due within 3 days | {deadlines[3]:,} |\n"
+        f"| Due within 7 days | {deadlines[7]:,} |\n"
+        f"| Due within 30 days | {deadlines[30]:,} |\n"
+        f"{DEADLINES_END}"
+    )
+
+
+def splice_block(
+    existing: str, block: str, start_marker: str, end_marker: str
+) -> str:
     pattern = re.compile(
-        re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER),
+        re.escape(start_marker) + r".*?" + re.escape(end_marker),
         re.DOTALL,
     )
     if pattern.search(existing):
-        return pattern.sub(block, existing)
+        return pattern.sub(lambda _: block, existing)
     return existing.rstrip() + "\n\n" + block + "\n"
 
 
-def default_readme(block: str) -> str:
+def default_readme(block: str, deadlines_block: str) -> str:
     return (
         "# Anthropic Mythos Findings Tracker\n"
         "\n"
@@ -264,6 +281,8 @@ def default_readme(block: str) -> str:
         "snapshots under `data/`. The metrics below are regenerated each run.\n"
         "\n"
         f"{block}\n"
+        "\n"
+        f"{deadlines_block}\n"
     )
 
 
@@ -289,15 +308,18 @@ def main() -> int:
         total,
         fixed_all,
         changed_all,
-        deadline_revealed,
-        deadline_not_revealed,
-        deadlines,
+    )
+    deadlines_block = render_deadlines_block(
+        deadline_revealed, deadline_not_revealed, deadlines
     )
 
     if README_PATH.exists():
-        README_PATH.write_text(splice_block(README_PATH.read_text(), block))
+        text = README_PATH.read_text()
+        text = splice_block(text, block, START_MARKER, END_MARKER)
+        text = splice_block(text, deadlines_block, DEADLINES_START, DEADLINES_END)
+        README_PATH.write_text(text)
     else:
-        README_PATH.write_text(default_readme(block))
+        README_PATH.write_text(default_readme(block, deadlines_block))
 
     print(
         f"updated {README_PATH} "
