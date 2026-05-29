@@ -33,7 +33,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CSV = ROOT / "data" / "advisories.csv"
 DEFAULT_SVG = ROOT / "data" / "cumulative.svg"
+DEFAULT_DISCLOSURE_SVG = ROOT / "data" / "disclosure.svg"
 DEFAULT_STATUS_SVG = ROOT / "data" / "status_pie.svg"
+
+# Anthropic's coordinated-disclosure timeline. A finding's disclosure
+# deadline is its committed_at date plus this many days.
+DISCLOSURE_WINDOW_DAYS = 90
 
 
 # --------------------------------------------------------------------------- #
@@ -42,12 +47,16 @@ DEFAULT_STATUS_SVG = ROOT / "data" / "status_pie.svg"
 
 
 def load_cumulative_series(
-    csv_path: Path, column: str = "committed_at"
+    csv_path: Path, column: str = "committed_at", offset_days: int = 0
 ) -> list[tuple[dt.date, int]]:
     """
     Read the CSV and return a sorted list of (date, cumulative_count) pairs,
     one per distinct date value found in `column`. Rows with an empty or
     malformed value in that column are skipped.
+
+    If `offset_days` is non-zero, that many days are added to each parsed date
+    before bucketing. This is used to project the 90-day disclosure deadline
+    from each finding's `committed_at` date.
 
     Returns an empty list if the column exists but has no usable values --
     the caller decides whether that is fatal (for the primary series) or
@@ -69,6 +78,8 @@ def load_cumulative_series(
                 day = dt.date.fromisoformat(raw)
             except ValueError:
                 continue
+            if offset_days:
+                day += dt.timedelta(days=offset_days)
             per_day[day] += 1
 
     cumulative: list[tuple[dt.date, int]] = []
@@ -197,6 +208,8 @@ def render_svg(
     height: int = 520,
     title: str = "Anthropic Mythos ledger — cumulative findings over time",
     theme: str = "dark",
+    x_label: str = "Ledger Commit Date",
+    point_noun: str = "commit dates",
 ) -> str:
     """
     Render a cumulative step-line chart with one or more series.
@@ -225,8 +238,12 @@ def render_svg(
     plot_w = width - m_left - m_right
     plot_h = height - m_top - m_bottom
 
-    # Compute the overall date range across all non-empty series.
+    # Compute the overall date range across all non-empty series. A series
+    # may also declare an explicit `extend_to` date (e.g. "today") that its
+    # flat tail reaches even though it has no data point there -- include
+    # those so the x-axis spans far enough to show the endpoint.
     all_dates = [d for s in series_map.values() for d, _ in s["data"]]
+    all_dates += [s["extend_to"] for s in series_map.values() if s.get("extend_to")]
     if not all_dates:
         raise SystemExit("No data to plot.")
     first_date = min(all_dates)
@@ -246,14 +263,22 @@ def render_svg(
             return m_top + plot_h
         return m_top + plot_h - (v / y_max_nice) * plot_h
 
-    def build_step_path(data: list[tuple[dt.date, int]]) -> tuple[str, str]:
+    def build_step_path(
+        data: list[tuple[dt.date, int]], end_date: dt.date | None = None
+    ) -> tuple[str, str]:
         """Return (line_path, area_path) for a cumulative step series.
 
         The step rises only on the date a new value lands, so days with no
         activity sit on the previous value (true cumulative shape).
+
+        The flat tail runs to `end_date`; series that should stop before the
+        chart's right edge (e.g. patch-released, which has no data past today)
+        pass their own endpoint here instead of the global last date.
         """
         if not data:
             return "", ""
+        if end_date is None:
+            end_date = last_date
         parts: list[str] = []
         # Start at (first overall date, 0) so the line begins at the baseline
         # even when this series starts later than other series.
@@ -263,11 +288,11 @@ def render_svg(
             parts.append(f"L {x_for(d):.2f} {y_for(prev_y):.2f}")
             parts.append(f"L {x_for(d):.2f} {y_for(v):.2f}")
             prev_y = v
-        # Extend a flat segment to the right edge so the line doesn't end
-        # mid-chart for series whose last observation is earlier than others.
-        parts.append(f"L {x_for(last_date):.2f} {y_for(prev_y):.2f}")
+        # Extend a flat segment to `end_date` so the line doesn't end
+        # mid-chart for series whose last observation is earlier.
+        parts.append(f"L {x_for(end_date):.2f} {y_for(prev_y):.2f}")
         line_path = " ".join(parts)
-        area_path = line_path + f" L {x_for(last_date):.2f} {y_for(0):.2f} Z"
+        area_path = line_path + f" L {x_for(end_date):.2f} {y_for(0):.2f} Z"
         return line_path, area_path
 
     # Date axis ticks
@@ -331,7 +356,11 @@ def render_svg(
 
         if not s["data"]:
             continue
-        line_path, area_path = build_step_path(s["data"])
+        # A series may stop short of the chart's right edge (e.g. patch
+        # released, which has no data after today). `extend_to` is that
+        # stopping point; absent it, the series runs to the global last date.
+        series_end = s.get("extend_to") or last_date
+        line_path, area_path = build_step_path(s["data"], series_end)
         # Only fill behind the headline (committed) series, otherwise stacked
         # translucent fills muddle the picture.
         if s.get("fill", False):
@@ -346,7 +375,7 @@ def render_svg(
 
         if s.get("annotate", False):
             final_v = s["data"][-1][1]
-            fx = x_for(last_date)        # snap to right edge to match line end
+            fx = x_for(series_end)       # snap to the series' own line end
             fy = y_for(final_v)
             # For the headline series (filled area), keep the label inside
             # the plot, right-anchored, above the dot.
@@ -363,9 +392,13 @@ def render_svg(
                 # Small series: label to the right of the endpoint. When
                 # multiple small series share the same endpoint coordinates,
                 # stack their labels vertically (alternate above / below the
-                # dot) so they remain readable.
-                stack_offset = (-12 if small_label_index % 2 == 0 else 12)
-                small_label_index += 1
+                # dot) so they remain readable. If a date label is going
+                # above this dot, keep the count below it to avoid overlap.
+                if s.get("annotate_date", False):
+                    stack_offset = 16
+                else:
+                    stack_offset = (-12 if small_label_index % 2 == 0 else 12)
+                    small_label_index += 1
                 ly = fy + 4 + stack_offset
                 lx = fx + 8
                 anchor = "start"
@@ -378,6 +411,14 @@ def render_svg(
                 f'fill="{colors["line"]}" font-size="11" font-weight="600">'
                 f'{_xml_escape(text)}</text>'
             )
+            # Optional date label centered above the endpoint dot, marking the
+            # date the line stops at (e.g. "current as of" for patch released).
+            if s.get("annotate_date", False):
+                annotation_parts.append(
+                    f'<text x="{fx:.2f}" y="{fy - 10:.2f}" text-anchor="middle" '
+                    f'fill="{colors["line"]}" font-size="11" font-weight="600">'
+                    f'{_xml_escape(series_end.isoformat())}</text>'
+                )
 
     # Legend layout: horizontal row in the bottom margin, below the x-axis
     # label. Sits inside the canvas (positioned relative to plot bottom).
@@ -408,7 +449,7 @@ def render_svg(
     primary_series = next(iter(series_map.values()))
     subtitle = (
         f"{first_date.isoformat()} → {last_date.isoformat()}  ·  "
-        f"{len(primary_series['data'])} commit dates  ·  generated {generated_at}"
+        f"{len(primary_series['data'])} {point_noun}  ·  generated {generated_at}"
     )
 
     svg = f'''<?xml version="1.0" encoding="UTF-8"?>
@@ -446,7 +487,7 @@ def render_svg(
   {"".join(x_tick_lines)}
   {"".join(x_tick_labels)}
   <text x="{m_left + plot_w / 2:.2f}" y="{m_top + plot_h + 50}" fill="{c["muted"]}" font-size="11"
-        text-anchor="middle">Ledger Commit Date</text>
+        text-anchor="middle">{_xml_escape(x_label)}</text>
 
   <!-- annotations -->
   {"".join(annotation_parts)}
@@ -680,6 +721,7 @@ def render_png(
     *,
     title: str,
     theme: str,
+    x_label: str = "Ledger Commit Date",
 ) -> None:
     """Optional: write a PNG using matplotlib if it is installed."""
     try:
@@ -714,10 +756,11 @@ def render_png(
     # data point, which makes endpoints visually offset when the two series
     # genuinely end on different dates -- and the offset reads as "the chart
     # is wrong" rather than as a real 1-day gap.
-    global_last_date = max(
-        (s["data"][-1][0] for s in series_map.values() if s["data"]),
-        default=None,
-    )
+    candidate_dates = [s["data"][-1][0] for s in series_map.values() if s["data"]]
+    candidate_dates += [
+        s["extend_to"] for s in series_map.values() if s.get("extend_to")
+    ]
+    global_last_date = max(candidate_dates, default=None)
 
     for name, s in series_map.items():
         if not s["data"]:
@@ -726,14 +769,18 @@ def render_png(
         dates = [d for d, _ in s["data"]]
         counts = [v for _, v in s["data"]]
 
-        # Flat-extend this series to the global last date if it ends earlier.
-        # The cumulative value doesn't change -- we're just drawing a
-        # horizontal segment to the chart's right edge. Annotations and the
-        # endpoint dot still use the true final data point.
+        # Where this series' flat tail stops. A series with `extend_to` (e.g.
+        # patch released, with no data after today) ends there rather than at
+        # the chart's right edge.
+        series_end = s.get("extend_to") or global_last_date
+
+        # Flat-extend this series to its endpoint if it ends earlier. The
+        # cumulative value doesn't change -- we're just drawing a horizontal
+        # segment. Annotations and the endpoint dot use this same endpoint.
         plot_dates = list(dates)
         plot_counts = list(counts)
-        if global_last_date is not None and dates[-1] < global_last_date:
-            plot_dates.append(global_last_date)
+        if series_end is not None and dates[-1] < series_end:
+            plot_dates.append(series_end)
             plot_counts.append(counts[-1])
 
         linestyle = "--" if s.get("dasharray") else "-"
@@ -748,12 +795,25 @@ def render_png(
             label=s["label"],
         )
         if s.get("annotate", False):
-            # Anchor the endpoint dot and label to the global last date
-            # (i.e. the visible end of the flat-extended line), not to the
-            # underlying real data point -- otherwise the dot would float in
-            # the middle of the chart for series that end early.
-            endpoint_x = global_last_date if global_last_date is not None else dates[-1]
+            # Anchor the endpoint dot and label to where this series' line
+            # actually ends (its extend_to date, or the global last date),
+            # not the underlying real data point -- otherwise the dot would
+            # float in the middle of the chart for series that end early.
+            endpoint_x = series_end if series_end is not None else dates[-1]
             ax.scatter([endpoint_x], [counts[-1]], color=colors["dot"], zorder=5, s=30)
+            # Optional date label centered above the endpoint dot.
+            if s.get("annotate_date", False):
+                ax.annotate(
+                    series_end.isoformat(),
+                    xy=(endpoint_x, counts[-1]),
+                    xytext=(0, 10),
+                    textcoords="offset points",
+                    ha="center",
+                    va="bottom",
+                    fontsize=10,
+                    fontweight="600",
+                    color=colors["line"],
+                )
             if s.get("fill", False):
                 ax.annotate(
                     f"{counts[-1]:,} {s['label'].lower()}",
@@ -767,8 +827,13 @@ def render_png(
                     color=c["fg"],
                 )
             else:
-                vertical_offset = 14 if small_label_index % 2 == 0 else -14
-                small_label_index += 1
+                # Keep the count below the dot when a date label sits above
+                # it; otherwise alternate above/below for stacked series.
+                if s.get("annotate_date", False):
+                    vertical_offset = -16
+                else:
+                    vertical_offset = 14 if small_label_index % 2 == 0 else -14
+                    small_label_index += 1
                 ax.annotate(
                     f"{counts[-1]:,} {s['label'].lower()}",
                     xy=(endpoint_x, counts[-1]),
@@ -782,7 +847,7 @@ def render_png(
                 )
 
     ax.set_title(title, color=c["fg"], fontweight="bold", loc="left")
-    ax.set_xlabel("Ledger Commit Date")
+    ax.set_xlabel(x_label)
     ax.set_ylabel("Cumulative Findings")
     ax.grid(True, axis="y")
     ax.xaxis.set_major_locator(mdates.AutoDateLocator())
@@ -822,6 +887,14 @@ def main() -> int:
                         help="PNG output path (default: same as --output with .png extension)")
     parser.add_argument("--no-png", action="store_true",
                         help="Skip the PNG output (SVG only)")
+    parser.add_argument("--disclosure-output", type=Path, default=DEFAULT_DISCLOSURE_SVG,
+                        help=f"Output SVG path for the 90-day disclosure-deadline "
+                             f"chart (default: {DEFAULT_DISCLOSURE_SVG})")
+    parser.add_argument("--disclosure-png", type=Path, default=None,
+                        help="PNG output path for the disclosure-deadline chart "
+                             "(default: same as --disclosure-output with .png extension)")
+    parser.add_argument("--no-disclosure", action="store_true",
+                        help="Skip the 90-day disclosure-deadline chart")
     parser.add_argument("--status-output", type=Path, default=DEFAULT_STATUS_SVG,
                         help=f"Output SVG path for the status pie chart "
                              f"(default: {DEFAULT_STATUS_SVG})")
@@ -895,6 +968,79 @@ def main() -> int:
         except SystemExit as e:
             # render_png raises SystemExit when matplotlib is missing.
             print(f"note: {e}", file=sys.stderr)
+
+    # Second chart: the 90-day disclosure deadline curve (each finding's
+    # committed_at + 90 days) against the patch-released curve. This shows how
+    # the schedule of disclosure deadlines compares with the pace of patches
+    # actually shipping. The disclosure line projects past today because some
+    # findings' deadlines fall in the future.
+    if not args.no_disclosure:
+        disclosure = load_cumulative_series(
+            args.csv, "committed_at", offset_days=DISCLOSURE_WINDOW_DAYS
+        )
+        if not disclosure:
+            print("note: no usable committed_at dates for the disclosure chart; "
+                  "skipping.", file=sys.stderr)
+        else:
+            # The deadline line runs ~90 days into the future, but patch-
+            # released data only exists up to today -- stop that line at the
+            # current date and label it, rather than drawing a flat line out
+            # to the future right edge.
+            today = dt.datetime.now(dt.timezone.utc).date()
+            disclosure_series: dict[str, dict] = {
+                "deadline": {
+                    "label": f"{DISCLOSURE_WINDOW_DAYS}-day disclosure deadline",
+                    "data": disclosure,
+                    "style_key": "committed",
+                    "dasharray": "",
+                    "fill": True,
+                    "annotate": True,
+                },
+                "released": {
+                    "label": "Patch released",
+                    "data": released,
+                    "style_key": "released",
+                    "dasharray": "",
+                    "fill": False,
+                    "annotate": True,
+                    "extend_to": today,
+                    "annotate_date": True,
+                },
+            }
+            disclosure_title = (
+                f"Anthropic Mythos ledger — {DISCLOSURE_WINDOW_DAYS}-day "
+                f"disclosure deadline vs. patch released"
+            )
+            disclosure_svg = render_svg(
+                disclosure_series,
+                width=args.width,
+                height=args.height,
+                title=disclosure_title,
+                theme=args.theme,
+                x_label="Date",
+                point_noun="disclosure dates",
+            )
+            args.disclosure_output.parent.mkdir(parents=True, exist_ok=True)
+            args.disclosure_output.write_text(disclosure_svg, encoding="utf-8")
+            print(
+                f"wrote {args.disclosure_output} "
+                f"(deadline={len(disclosure)} pts → {disclosure[-1][1]:,}, "
+                f"released={len(released)} pts"
+                f"{' → ' + format(released[-1][1], ',') if released else ''})"
+            )
+
+            if not args.no_png:
+                disclosure_png_path = (
+                    args.disclosure_png or args.disclosure_output.with_suffix(".png")
+                )
+                try:
+                    render_png(
+                        disclosure_series, disclosure_png_path,
+                        title=disclosure_title, theme=args.theme, x_label="Date",
+                    )
+                    print(f"wrote {disclosure_png_path}")
+                except SystemExit as e:
+                    print(f"note: {e}", file=sys.stderr)
 
     if not args.no_status_pie:
         status_counts = load_status_counts(args.csv)

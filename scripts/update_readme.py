@@ -48,23 +48,91 @@ def days_since_last_change(state: dict, now: dt.datetime) -> str:
     return str(max(0, (now - last_dt).days))
 
 
-def past_disclosure_window(now: dt.datetime, days: int = 90) -> int:
-    """Count findings whose committed_at is more than `days` days before now.
+def days_since_last_addition(now: dt.datetime) -> str:
+    """Days since the most recent finding was committed to the ledger.
 
-    Anthropic's coordinated-disclosure timeline is 90 days, so this reports
-    how many findings have a commit date that has already passed that window
-    relative to the current date. committed_at is stored as a YYYY-MM-DD
-    string, which sorts lexically, so a string comparison against the cutoff
-    date is exact. Empty committed_at values are excluded.
+    Uses MAX(committed_at) -- the newest commit date present in the mirror --
+    rather than our observation timestamps, so it reflects upstream activity
+    on the ledger itself. committed_at is a YYYY-MM-DD string; an empty table
+    or all-empty values yield an em dash.
+    """
+    conn = sqlite3.connect(SQLITE_PATH)
+    try:
+        latest = conn.execute(
+            "SELECT MAX(committed_at) FROM advisories WHERE committed_at != ''"
+        ).fetchone()[0]
+    finally:
+        conn.close()
+    if not latest:
+        return "—"
+    try:
+        latest_date = dt.date.fromisoformat(latest)
+    except ValueError:
+        return "—"
+    return str(max(0, (now.date() - latest_date).days))
+
+
+def deadline_reached(now: dt.datetime, days: int = 90) -> tuple[int, int]:
+    """Findings whose 90-day disclosure deadline has been reached, split by
+    whether they have been publicly revealed yet.
+
+    Anthropic's coordinated-disclosure timeline is `days` days, so a finding's
+    deadline is reached once its commit date is that many days before today.
+    Returns (revealed, not_revealed) counts for those findings -- the gap
+    between them is the set of findings whose window has elapsed but which the
+    ledger has not yet revealed.
+
+    committed_at is a YYYY-MM-DD string and sorts lexically, so the cutoff
+    comparison is exact. Empty committed_at values are excluded.
     """
     cutoff = (now.date() - dt.timedelta(days=days)).isoformat()
     conn = sqlite3.connect(SQLITE_PATH)
     try:
-        return conn.execute(
+        revealed = conn.execute(
             "SELECT COUNT(*) FROM advisories "
-            "WHERE committed_at != '' AND committed_at < ?",
+            "WHERE committed_at != '' AND committed_at < ? AND revealed = 1",
             (cutoff,),
         ).fetchone()[0]
+        not_revealed = conn.execute(
+            "SELECT COUNT(*) FROM advisories "
+            "WHERE committed_at != '' AND committed_at < ? AND revealed != 1",
+            (cutoff,),
+        ).fetchone()[0]
+    finally:
+        conn.close()
+    return revealed, not_revealed
+
+
+def upcoming_deadlines(
+    now: dt.datetime,
+    windows: tuple[int, ...] = (1, 3, 7, 30),
+    days: int = 90,
+) -> dict[int, int]:
+    """Count findings whose 90-day disclosure deadline falls within the next
+    N days, for each N in `windows`.
+
+    A finding's deadline is committed_at + `days`. "Within the next N days"
+    means the deadline lands from today (inclusive -- not yet past) through
+    today + N. Rearranged against the stored committed_at date that is:
+        today - days <= committed_at <= today + N - days
+    The lower bound (deadline == today) dovetails with past_disclosure_window,
+    which counts deadlines strictly before today, so the two never overlap.
+    committed_at is a YYYY-MM-DD string and sorts lexically, so the date
+    bounds compare exactly. Empty committed_at values are excluded.
+    """
+    today = now.date()
+    low = (today - dt.timedelta(days=days)).isoformat()
+    conn = sqlite3.connect(SQLITE_PATH)
+    try:
+        result: dict[int, int] = {}
+        for n in windows:
+            high = (today + dt.timedelta(days=n - days)).isoformat()
+            result[n] = conn.execute(
+                "SELECT COUNT(*) FROM advisories "
+                "WHERE committed_at != '' AND committed_at >= ? AND committed_at <= ?",
+                (low, high),
+            ).fetchone()[0]
+        return result
     finally:
         conn.close()
 
@@ -141,16 +209,20 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int, int, int, int]:
 
 def render_block(
     days: str,
+    days_since_addition: str,
     added_7d: int,
     changed_7d: int,
     fixed_7d: int,
     total: int,
     fixed_all: int,
     changed_all: int,
-    past_90d: int,
+    deadline_revealed: int,
+    deadline_not_revealed: int,
+    deadlines: dict[int, int],
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time row's "added" cell.
+    deadline_total = deadline_revealed + deadline_not_revealed
     return (
         f"{START_MARKER}\n"
         f"|  | Findings added | Findings fixed | Findings changed |\n"
@@ -158,9 +230,17 @@ def render_block(
         f"| **All-time** | {total:,} | {fixed_all:,} | {changed_all:,} |\n"
         f"| **Last 7 days** | {added_7d:,} | {fixed_7d:,} | {changed_7d:,} |\n"
         f"\n"
-        f"| Days since last change | Past 90-day disclosure window |\n"
+        f"| Days since last change | Days since last addition |\n"
         f"| :---: | :---: |\n"
-        f"| {days} | {past_90d:,} |\n"
+        f"| {days} | {days_since_addition} |\n"
+        f"\n"
+        f"| Disclosure deadline reached | Total | Revealed | Not yet revealed |\n"
+        f"| :--- | :---: | :---: | :---: |\n"
+        f"| **Findings** | {deadline_total:,} | {deadline_revealed:,} | {deadline_not_revealed:,} |\n"
+        f"\n"
+        f"| Disclosure deadlines expected | Next 1 day | Next 3 days | Next 7 days | Next 30 days |\n"
+        f"| :--- | :---: | :---: | :---: | :---: |\n"
+        f"| **Findings** | {deadlines[1]:,} | {deadlines[3]:,} | {deadlines[7]:,} | {deadlines[30]:,} |\n"
         f"{END_MARKER}"
     )
 
@@ -198,16 +278,20 @@ def main() -> int:
     now = dt.datetime.now(dt.timezone.utc)
     state = load_state()
     total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all = query_metrics(now)
-    past_90d = past_disclosure_window(now)
+    deadline_revealed, deadline_not_revealed = deadline_reached(now)
+    deadlines = upcoming_deadlines(now)
     block = render_block(
         days_since_last_change(state, now),
+        days_since_last_addition(now),
         added_7d,
         changed_7d,
         fixed_7d,
         total,
         fixed_all,
         changed_all,
-        past_90d,
+        deadline_revealed,
+        deadline_not_revealed,
+        deadlines,
     )
 
     if README_PATH.exists():
@@ -219,7 +303,9 @@ def main() -> int:
         f"updated {README_PATH} "
         f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} "
         f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} changed_all={changed_all:,} "
-        f"past_90d={past_90d:,})"
+        f"deadline_reached={deadline_revealed + deadline_not_revealed:,} "
+        f"(revealed={deadline_revealed:,} not_revealed={deadline_not_revealed:,}) "
+        f"deadlines_1/3/7/30d={deadlines[1]}/{deadlines[3]}/{deadlines[7]}/{deadlines[30]})"
     )
     return 0
 
