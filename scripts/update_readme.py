@@ -210,16 +210,15 @@ def render_block(
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time "added" row.
     #
-    # The "Days since" values sit as two text lines above the metrics table
-    # (a <br> joins them into one block). The table consolidates the
+    # The "Days since" values sit on one text line above the metrics table.
+    # The table consolidates the
     # findings-added counts with the three disclosure-status snapshots
     # (fixed, and deadlines reached split by whether the finding has been
     # revealed). The "Due in the next N days" timeline still lives in its
     # own DEADLINES block next to the chart.
     return (
         f"{START_MARKER}\n"
-        f"**Days since last change:** {days}<br>\n"
-        f"**Days since last addition:** {days_since_addition}\n"
+        f"**Days since last change:** {days} | **Days since last addition:** {days_since_addition}\n"
         f"\n"
         f"| Metric | Findings |\n"
         f"| :--- | :---: |\n"
