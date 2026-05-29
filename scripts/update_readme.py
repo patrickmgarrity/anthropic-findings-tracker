@@ -221,16 +221,31 @@ def render_block(
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time row's "added" cell.
+    #
+    # The two tables are placed side by side inside an HTML <table> row.
+    # GitHub renders markdown inside HTML cells as long as there are blank
+    # lines separating the markdown from the surrounding tags.
     return (
         f"{START_MARKER}\n"
+        f"<table>\n"
+        f"<tr>\n"
+        f"<td>\n"
+        f"\n"
         f"|  | Findings added | Findings changed |\n"
         f"| :--- | :---: | :---: |\n"
         f"| **All-time** | {total:,} | {changed_all:,} |\n"
         f"| **Last 7 days** | {added_7d:,} | {changed_7d:,} |\n"
         f"\n"
+        f"</td>\n"
+        f"<td>\n"
+        f"\n"
         f"| Days since last change | Days since last addition |\n"
         f"| :---: | :---: |\n"
         f"| {days} | {days_since_addition} |\n"
+        f"\n"
+        f"</td>\n"
+        f"</tr>\n"
+        f"</table>\n"
         f"{END_MARKER}"
     )
 
