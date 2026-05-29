@@ -48,6 +48,27 @@ def days_since_last_change(state: dict, now: dt.datetime) -> str:
     return str(max(0, (now - last_dt).days))
 
 
+def past_disclosure_window(now: dt.datetime, days: int = 90) -> int:
+    """Count findings whose committed_at is more than `days` days before now.
+
+    Anthropic's coordinated-disclosure timeline is 90 days, so this reports
+    how many findings have a commit date that has already passed that window
+    relative to the current date. committed_at is stored as a YYYY-MM-DD
+    string, which sorts lexically, so a string comparison against the cutoff
+    date is exact. Empty committed_at values are excluded.
+    """
+    cutoff = (now.date() - dt.timedelta(days=days)).isoformat()
+    conn = sqlite3.connect(SQLITE_PATH)
+    try:
+        return conn.execute(
+            "SELECT COUNT(*) FROM advisories "
+            "WHERE committed_at != '' AND committed_at < ?",
+            (cutoff,),
+        ).fetchone()[0]
+    finally:
+        conn.close()
+
+
 def load_state() -> dict:
     if not STATE_PATH.exists():
         return {}
@@ -126,6 +147,7 @@ def render_block(
     total: int,
     fixed_all: int,
     changed_all: int,
+    past_90d: int,
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time row's "added" cell.
@@ -136,9 +158,9 @@ def render_block(
         f"| **All-time** | {total:,} | {fixed_all:,} | {changed_all:,} |\n"
         f"| **Last 7 days** | {added_7d:,} | {fixed_7d:,} | {changed_7d:,} |\n"
         f"\n"
-        f"| Days since last change |\n"
-        f"| :---: |\n"
-        f"| {days} |\n"
+        f"| Days since last change | Past 90-day disclosure window |\n"
+        f"| :---: | :---: |\n"
+        f"| {days} | {past_90d:,} |\n"
         f"{END_MARKER}"
     )
 
@@ -176,6 +198,7 @@ def main() -> int:
     now = dt.datetime.now(dt.timezone.utc)
     state = load_state()
     total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all = query_metrics(now)
+    past_90d = past_disclosure_window(now)
     block = render_block(
         days_since_last_change(state, now),
         added_7d,
@@ -184,6 +207,7 @@ def main() -> int:
         total,
         fixed_all,
         changed_all,
+        past_90d,
     )
 
     if README_PATH.exists():
@@ -194,7 +218,8 @@ def main() -> int:
     print(
         f"updated {README_PATH} "
         f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} "
-        f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} changed_all={changed_all:,})"
+        f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} changed_all={changed_all:,} "
+        f"past_90d={past_90d:,})"
     )
     return 0
 
