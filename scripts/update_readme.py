@@ -216,19 +216,17 @@ def render_block(
     days_since_addition: str,
     added_7d: int,
     changed_7d: int,
-    fixed_7d: int,
     total: int,
-    fixed_all: int,
     changed_all: int,
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time row's "added" cell.
     return (
         f"{START_MARKER}\n"
-        f"|  | Findings added | Findings fixed | Findings changed |\n"
-        f"| :--- | :---: | :---: | :---: |\n"
-        f"| **All-time** | {total:,} | {fixed_all:,} | {changed_all:,} |\n"
-        f"| **Last 7 days** | {added_7d:,} | {fixed_7d:,} | {changed_7d:,} |\n"
+        f"|  | Findings added | Findings changed |\n"
+        f"| :--- | :---: | :---: |\n"
+        f"| **All-time** | {total:,} | {changed_all:,} |\n"
+        f"| **Last 7 days** | {added_7d:,} | {changed_7d:,} |\n"
         f"\n"
         f"| Days since last change | Days since last addition |\n"
         f"| :---: | :---: |\n"
@@ -241,11 +239,14 @@ def render_deadlines_block(
     deadline_revealed: int,
     deadline_not_revealed: int,
     deadlines: dict[int, int],
+    fixed_all: int,
 ) -> str:
     """One consolidated table for the chart above: a disclosure-deadline
     timeline running from deadlines already reached (split by whether the
-    finding has been revealed) through deadlines coming due. The "due within"
-    rows are cumulative -- each window includes the ones before it."""
+    finding has been revealed) through deadlines coming due, plus the count
+    of findings fixed (a snapshot of those currently at status='fixed', which
+    matches the patch-released line on the chart). The "due in the next" rows
+    are cumulative -- each window includes the ones before it."""
     return (
         f"{DEADLINES_START}\n"
         f"| Disclosure deadline | Findings |\n"
@@ -256,6 +257,7 @@ def render_deadlines_block(
         f"| Due in the next 3 days | {deadlines[3]:,} |\n"
         f"| Due in the next 7 days | {deadlines[7]:,} |\n"
         f"| Due in the next 30 days | {deadlines[30]:,} |\n"
+        f"| Findings fixed | {fixed_all:,} |\n"
         f"{DEADLINES_END}"
     )
 
@@ -304,13 +306,11 @@ def main() -> int:
         days_since_last_addition(now),
         added_7d,
         changed_7d,
-        fixed_7d,
         total,
-        fixed_all,
         changed_all,
     )
     deadlines_block = render_deadlines_block(
-        deadline_revealed, deadline_not_revealed, deadlines
+        deadline_revealed, deadline_not_revealed, deadlines, fixed_all
     )
 
     if README_PATH.exists():
