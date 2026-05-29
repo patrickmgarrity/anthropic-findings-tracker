@@ -250,12 +250,12 @@ def render_deadlines_block(
         f"{DEADLINES_START}\n"
         f"| Disclosure deadline | Findings |\n"
         f"| :--- | :---: |\n"
-        f"| Reached — not yet revealed | {deadline_not_revealed:,} |\n"
-        f"| Reached — revealed | {deadline_revealed:,} |\n"
-        f"| Due within 1 day | {deadlines[1]:,} |\n"
-        f"| Due within 3 days | {deadlines[3]:,} |\n"
-        f"| Due within 7 days | {deadlines[7]:,} |\n"
-        f"| Due within 30 days | {deadlines[30]:,} |\n"
+        f"| Past Disclosure Deadline - Not Revealed Yet | {deadline_not_revealed:,} |\n"
+        f"| Past Disclosure Deadline - Revealed | {deadline_revealed:,} |\n"
+        f"| Due in the next 1 day | {deadlines[1]:,} |\n"
+        f"| Due in the next 3 days | {deadlines[3]:,} |\n"
+        f"| Due in the next 7 days | {deadlines[7]:,} |\n"
+        f"| Due in the next 30 days | {deadlines[30]:,} |\n"
         f"{DEADLINES_END}"
     )
 
