@@ -1,0 +1,8 @@
+{
+  "__EXAMPLE__ replace this key with a full finding hash from advisories.csv": {
+    "cve_ids": ["CVE-2026-12345"],
+    "ghsa_ids": ["GHSA-xxxx-xxxx-xxxx"],
+    "_source": "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
+    "_note": "ledger entry was blank; CVE located via NVD. Keys starting with __ never match a real hash, so this example is ignored by the pipeline. cve_ids/ghsa_ids are filled only when the upstream ledger value is blank."
+  }
+}

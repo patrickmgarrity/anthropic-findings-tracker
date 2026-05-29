@@ -62,6 +62,7 @@ JSONL_PATH = DATA_DIR / "advisories.jsonl"
 SQLITE_PATH = DATA_DIR / "advisories.sqlite"
 STATE_PATH = DATA_DIR / "state.json"
 CHANGES_LOG = DATA_DIR / "changes.log"
+OVERRIDES_PATH = DATA_DIR / "overrides.json"
 
 DISCOVERED_BY = "Anthropic Mythos"
 
@@ -354,6 +355,70 @@ def load_state() -> dict:
 
 def save_state(state: dict) -> None:
     STATE_PATH.write_text(json.dumps(state, indent=2, sort_keys=True))
+
+
+# --------------------------------------------------------------------------- #
+# Manual overrides                                                            #
+# --------------------------------------------------------------------------- #
+
+# Fields a maintainer is allowed to backfill manually. Scope is deliberately
+# narrow: identifier lists whose values can be located elsewhere (NVD/GHSA)
+# when the ledger entry is blank. The matching *_urls columns are derived
+# automatically downstream, so they must NOT be overridden directly.
+OVERRIDABLE_FIELDS = ("cve_ids", "ghsa_ids")
+
+
+def load_overrides() -> dict:
+    """Load hand-curated corrections from data/overrides.json.
+
+    Format -- a JSON object keyed by finding `hash` (the stable primary key
+    shown in the advisory_url anchor)::
+
+        {
+          "<full-finding-hash>": {
+            "cve_ids":  ["CVE-2026-12345"],
+            "ghsa_ids": ["GHSA-xxxx-xxxx-xxxx"],
+            "_source":  "https://nvd.nist.gov/vuln/detail/CVE-2026-12345",
+            "_note":    "ledger entry was blank; located via NVD"
+          }
+        }
+
+    Only `cve_ids` / `ghsa_ids` are applied, and only to *fill gaps* -- if the
+    upstream ledger already carries a value for that field, upstream wins and
+    the override is ignored. Keys beginning with `_` (e.g. `_source`, `_note`)
+    are provenance metadata, preserved in the file but ignored by the pipeline.
+    """
+    if not OVERRIDES_PATH.exists():
+        return {}
+    try:
+        data = json.loads(OVERRIDES_PATH.read_text())
+    except json.JSONDecodeError:
+        log.warning("overrides.json is not valid JSON; ignoring it this run")
+        return {}
+    if not isinstance(data, dict):
+        log.warning("overrides.json must be a JSON object keyed by hash; ignoring")
+        return {}
+    return data
+
+
+def apply_overrides(entry: dict, overrides: dict) -> list[str]:
+    """Fill blank identifier fields on a raw ledger `entry` in place.
+
+    Returns the list of field names that were actually backfilled (for logging).
+    """
+    ov = overrides.get(entry.get("hash", ""))
+    if not isinstance(ov, dict):
+        return []
+    applied: list[str] = []
+    for field in OVERRIDABLE_FIELDS:
+        val = ov.get(field)
+        if not val:
+            continue
+        if entry.get(field):  # fill-gaps-only: never clobber a real upstream value
+            continue
+        entry[field] = val if isinstance(val, list) else [val]
+        applied.append(field)
+    return applied
 
 
 # --------------------------------------------------------------------------- #
@@ -711,6 +776,18 @@ def main() -> int:
     ]
     log.info("fetching %d revealed finding pages", len(revealed_ant_ids))
     finding_details = fetch_finding_details(revealed_ant_ids, finding_cache, now_iso)
+
+    # Backfill blank cve_ids/ghsa_ids from hand-curated corrections *before*
+    # normalize() derives the cve_urls/ghsa_urls columns, so the URLs stay
+    # consistent with the corrected identifiers.
+    overrides = load_overrides()
+    if overrides:
+        backfilled = 0
+        for e in ledger_data:
+            if apply_overrides(e, overrides):
+                backfilled += 1
+        log.info("applied manual overrides to %d entries (of %d in overrides.json)",
+                 backfilled, len(overrides))
 
     records = [normalize(e, titles, finding_details, now_iso) for e in ledger_data]
     records.sort(key=lambda r: (r["committed_at"] or "", r["hash"]), reverse=True)
