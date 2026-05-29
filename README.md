@@ -13,8 +13,6 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 
 ![Anthropic Findings Over Time](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/cumulative.png)
 
-![90-Day Disclosure Deadline vs. Patch Released](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/disclosure.png)
-
 <!-- DEADLINES:START -->
 | Disclosure deadline | Findings |
 | :--- | :---: |
@@ -25,5 +23,7 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 | Due within 7 days | 2 |
 | Due within 30 days | 80 |
 <!-- DEADLINES:END -->
+
+![90-Day Disclosure Deadline vs. Patch Released](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/disclosure.png)
 
 ![Anthropic Findings by Status](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/status_pie.png)
