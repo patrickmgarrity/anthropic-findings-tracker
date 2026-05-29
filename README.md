@@ -5,10 +5,13 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <tr>
 <td>
 
-|  | Findings added | Findings changed |
-| :--- | :---: | :---: |
-| **All-time** | 1,611 | 15 |
-| **Last 7 days** | 1,611 | 15 |
+| Metric | Findings |
+| :--- | :---: |
+| Findings added (all-time) | 1,611 |
+| Findings added (last 7 days) | 1,611 |
+| Findings fixed | 27 |
+| Past 90-day deadline — revealed | 0 |
+| Past 90-day deadline — not yet revealed | 7 |
 
 </td>
 <td>
@@ -27,9 +30,6 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- DEADLINES:START -->
 | Disclosure deadline | Findings |
 | :--- | :---: |
-| Findings fixed | 27 |
-| Deadline Complete - Not Revealed Yet | 7 |
-| Deadline Complete - Revealed | 0 |
 | Due in the next 1 day | 1 |
 | Due in the next 3 days | 1 |
 | Due in the next 7 days | 2 |

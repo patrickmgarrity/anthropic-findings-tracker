@@ -150,8 +150,8 @@ def load_state() -> dict:
         return {}
 
 
-def query_metrics(now: dt.datetime) -> tuple[int, int, int, int, int, int]:
-    """Return (total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all).
+def query_metrics(now: dt.datetime) -> tuple[int, int, int, int]:
+    """Return (total, added_7d, fixed_7d, fixed_all).
 
     `total` doubles as "findings added (all-time)" — every finding entered
     the mirror via a `new` change at some point, so the two are identical
@@ -170,14 +170,6 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int, int, int, int]:
         added = conn.execute(
             "SELECT COUNT(*) FROM changes "
             "WHERE change_kind = 'new' AND observed_utc >= ?",
-            (seven_days_ago_iso,),
-        ).fetchone()[0]
-        # "Changed" = distinct findings that had at least one field updated
-        # in the window. Excludes brand-new arrivals (already in "added") so
-        # the two metrics don't overlap.
-        changed = conn.execute(
-            "SELECT COUNT(DISTINCT hash) FROM changes "
-            "WHERE change_kind = 'updated' AND observed_utc >= ?",
             (seven_days_ago_iso,),
         ).fetchone()[0]
         # A finding counts as "fixed in the window" if we observed it
@@ -201,26 +193,27 @@ def query_metrics(now: dt.datetime) -> tuple[int, int, int, int, int, int]:
         fixed_all = conn.execute(
             "SELECT COUNT(*) FROM advisories WHERE status = 'fixed'"
         ).fetchone()[0]
-        # All-time changed: distinct findings that have ever had any field
-        # updated (excludes 'new' rows by definition of change_kind).
-        changed_all = conn.execute(
-            "SELECT COUNT(DISTINCT hash) FROM changes WHERE change_kind = 'updated'"
-        ).fetchone()[0]
     finally:
         conn.close()
-    return total, added, changed, fixed, fixed_all, changed_all
+    return total, added, fixed, fixed_all
 
 
 def render_block(
     days: str,
     days_since_addition: str,
     added_7d: int,
-    changed_7d: int,
     total: int,
-    changed_all: int,
+    fixed_all: int,
+    deadline_not_revealed: int,
+    deadline_revealed: int,
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
-    # change), so we use it directly in the all-time row's "added" cell.
+    # change), so we use it directly in the all-time "added" row.
+    #
+    # The left table consolidates the findings-added counts with the three
+    # disclosure-status snapshots (fixed, and deadlines reached split by
+    # whether the finding has been revealed). The "Due in the next N days"
+    # timeline still lives in its own DEADLINES block next to the chart.
     #
     # The two tables are placed side by side inside an HTML <table> row.
     # GitHub renders markdown inside HTML cells as long as there are blank
@@ -231,10 +224,13 @@ def render_block(
         f"<tr>\n"
         f"<td>\n"
         f"\n"
-        f"|  | Findings added | Findings changed |\n"
-        f"| :--- | :---: | :---: |\n"
-        f"| **All-time** | {total:,} | {changed_all:,} |\n"
-        f"| **Last 7 days** | {added_7d:,} | {changed_7d:,} |\n"
+        f"| Metric | Findings |\n"
+        f"| :--- | :---: |\n"
+        f"| Findings added (all-time) | {total:,} |\n"
+        f"| Findings added (last 7 days) | {added_7d:,} |\n"
+        f"| Findings fixed | {fixed_all:,} |\n"
+        f"| Past 90-day deadline — revealed | {deadline_revealed:,} |\n"
+        f"| Past 90-day deadline — not yet revealed | {deadline_not_revealed:,} |\n"
         f"\n"
         f"</td>\n"
         f"<td>\n"
@@ -250,25 +246,15 @@ def render_block(
     )
 
 
-def render_deadlines_block(
-    deadline_revealed: int,
-    deadline_not_revealed: int,
-    deadlines: dict[int, int],
-    fixed_all: int,
-) -> str:
-    """One consolidated table for the chart above: a disclosure-deadline
-    timeline running from deadlines already reached (split by whether the
-    finding has been revealed) through deadlines coming due, plus the count
-    of findings fixed (a snapshot of those currently at status='fixed', which
-    matches the patch-released line on the chart). The "due in the next" rows
-    are cumulative -- each window includes the ones before it."""
+def render_deadlines_block(deadlines: dict[int, int]) -> str:
+    """The disclosure-deadline timeline for the chart above: findings whose
+    90-day deadline is coming due. The "due in the next" rows are cumulative
+    -- each window includes the ones before it. The fixed / deadline-reached
+    snapshots now live in the consolidated metrics table at the top."""
     return (
         f"{DEADLINES_START}\n"
         f"| Disclosure deadline | Findings |\n"
         f"| :--- | :---: |\n"
-        f"| Findings fixed | {fixed_all:,} |\n"
-        f"| Deadline Complete - Not Revealed Yet | {deadline_not_revealed:,} |\n"
-        f"| Deadline Complete - Revealed | {deadline_revealed:,} |\n"
         f"| Due in the next 1 day | {deadlines[1]:,} |\n"
         f"| Due in the next 3 days | {deadlines[3]:,} |\n"
         f"| Due in the next 7 days | {deadlines[7]:,} |\n"
@@ -313,20 +299,19 @@ def main() -> int:
 
     now = dt.datetime.now(dt.timezone.utc)
     state = load_state()
-    total, added_7d, changed_7d, fixed_7d, fixed_all, changed_all = query_metrics(now)
+    total, added_7d, fixed_7d, fixed_all = query_metrics(now)
     deadline_revealed, deadline_not_revealed = deadline_reached(now)
     deadlines = upcoming_deadlines(now)
     block = render_block(
         days_since_last_change(state, now),
         days_since_last_addition(now),
         added_7d,
-        changed_7d,
         total,
-        changed_all,
+        fixed_all,
+        deadline_not_revealed,
+        deadline_revealed,
     )
-    deadlines_block = render_deadlines_block(
-        deadline_revealed, deadline_not_revealed, deadlines, fixed_all
-    )
+    deadlines_block = render_deadlines_block(deadlines)
 
     if README_PATH.exists():
         text = README_PATH.read_text()
@@ -338,8 +323,8 @@ def main() -> int:
 
     print(
         f"updated {README_PATH} "
-        f"(total={total:,} added_7d={added_7d:,} changed_7d={changed_7d:,} "
-        f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} changed_all={changed_all:,} "
+        f"(total={total:,} added_7d={added_7d:,} "
+        f"fixed_7d={fixed_7d:,} fixed_all={fixed_all:,} "
         f"deadline_reached={deadline_revealed + deadline_not_revealed:,} "
         f"(revealed={deadline_revealed:,} not_revealed={deadline_not_revealed:,}) "
         f"deadlines_1/3/7/30d={deadlines[1]}/{deadlines[3]}/{deadlines[7]}/{deadlines[30]})"
