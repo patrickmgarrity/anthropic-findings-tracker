@@ -17,8 +17,8 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 | Disclosure deadline | Findings |
 | :--- | :---: |
 | Findings fixed | 27 |
-| Past Disclosure Deadline - Not Revealed Yet | 7 |
-| Past Disclosure Deadline - Revealed | 0 |
+| Deadline Complete - Not Revealed Yet | 7 |
+| Deadline Complete - Revealed | 0 |
 | Due in the next 1 day | 1 |
 | Due in the next 3 days | 1 |
 | Due in the next 7 days | 2 |
