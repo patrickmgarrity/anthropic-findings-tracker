@@ -210,19 +210,16 @@ def render_block(
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time "added" row.
     #
-    # The left table consolidates the findings-added counts with the three
-    # disclosure-status snapshots (fixed, and deadlines reached split by
-    # whether the finding has been revealed). The "Due in the next N days"
-    # timeline still lives in its own DEADLINES block next to the chart.
-    #
-    # The two tables are placed side by side inside an HTML <table> row.
-    # GitHub renders markdown inside HTML cells as long as there are blank
-    # lines separating the markdown from the surrounding tags.
+    # The "Days since" values sit as two text lines above the metrics table
+    # (a <br> joins them into one block). The table consolidates the
+    # findings-added counts with the three disclosure-status snapshots
+    # (fixed, and deadlines reached split by whether the finding has been
+    # revealed). The "Due in the next N days" timeline still lives in its
+    # own DEADLINES block next to the chart.
     return (
         f"{START_MARKER}\n"
-        f"<table>\n"
-        f"<tr>\n"
-        f"<td>\n"
+        f"**Days since last change:** {days}<br>\n"
+        f"**Days since last addition:** {days_since_addition}\n"
         f"\n"
         f"| Metric | Findings |\n"
         f"| :--- | :---: |\n"
@@ -231,17 +228,6 @@ def render_block(
         f"| Findings fixed | {fixed_all:,} |\n"
         f"| Past 90-day deadline — revealed | {deadline_revealed:,} |\n"
         f"| Past 90-day deadline — not yet revealed | {deadline_not_revealed:,} |\n"
-        f"\n"
-        f"</td>\n"
-        f"<td>\n"
-        f"\n"
-        f"| Days since last change | Days since last addition |\n"
-        f"| :---: | :---: |\n"
-        f"| {days} | {days_since_addition} |\n"
-        f"\n"
-        f"</td>\n"
-        f"</tr>\n"
-        f"</table>\n"
         f"{END_MARKER}"
     )
 
