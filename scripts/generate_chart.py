@@ -918,6 +918,11 @@ def main() -> int:
         )
     released = load_cumulative_series(args.csv, "patch_released_at")
 
+    # Extend every series' flat tail to today so the chart always runs to the
+    # current date, even on days when the ledger added no new findings. Without
+    # this the line would stop at the last commit date and read as stale.
+    today = dt.datetime.now(dt.timezone.utc).date()
+
     # Series are drawn back-to-front in dict order. Put the headline
     # (committed) line first so the smaller patch-released line renders
     # on top and stays readable.
@@ -929,6 +934,7 @@ def main() -> int:
             "dasharray": "",
             "fill": True,
             "annotate": True,
+            "extend_to": today,
         },
         "released": {
             "label": "Patch released",
@@ -937,6 +943,7 @@ def main() -> int:
             "dasharray": "",   # solid -- nothing to disambiguate from
             "fill": False,
             "annotate": True,
+            "extend_to": today,
         },
     }
 
