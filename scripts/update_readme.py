@@ -204,18 +204,15 @@ def render_block(
     added_7d: int,
     total: int,
     fixed_all: int,
-    deadline_not_revealed: int,
-    deadline_revealed: int,
 ) -> str:
     # `total` == findings added all-time (every finding entered via a `new`
     # change), so we use it directly in the all-time "added" row.
     #
     # The "Days since" values sit on one text line above the metrics table.
-    # The table consolidates the
-    # findings-added counts with the three disclosure-status snapshots
-    # (fixed, and deadlines reached split by whether the finding has been
-    # revealed). The "Due in the next N days" timeline still lives in its
-    # own DEADLINES block next to the chart.
+    # The table consolidates the findings-added counts with the fixed
+    # snapshot. The disclosure-deadline rows (reached, split by revealed
+    # status, and the "Due in the next N days" timeline) live in the
+    # DEADLINES block next to the chart.
     return (
         f"{START_MARKER}\n"
         f"**Days since last change:** {days} | **Days since last addition:** {days_since_addition}\n"
@@ -225,21 +222,25 @@ def render_block(
         f"| Findings added (all-time) | {total:,} |\n"
         f"| Findings added (last 7 days) | {added_7d:,} |\n"
         f"| Findings fixed | {fixed_all:,} |\n"
-        f"| Past 90-day deadline — revealed | {deadline_revealed:,} |\n"
-        f"| Past 90-day deadline — not yet revealed | {deadline_not_revealed:,} |\n"
         f"{END_MARKER}"
     )
 
 
-def render_deadlines_block(deadlines: dict[int, int]) -> str:
+def render_deadlines_block(
+    deadlines: dict[int, int],
+    deadline_revealed: int,
+    deadline_not_revealed: int,
+) -> str:
     """The disclosure-deadline timeline for the chart above: findings whose
-    90-day deadline is coming due. The "due in the next" rows are cumulative
-    -- each window includes the ones before it. The fixed / deadline-reached
-    snapshots now live in the consolidated metrics table at the top."""
+    90-day deadline has already passed (split by whether they have been
+    revealed yet) followed by those coming due. The "due in the next" rows
+    are cumulative -- each window includes the ones before it."""
     return (
         f"{DEADLINES_START}\n"
         f"| Disclosure deadline | Findings |\n"
         f"| :--- | :---: |\n"
+        f"| Past 90-day deadline — revealed | {deadline_revealed:,} |\n"
+        f"| Past 90-day deadline — not yet revealed | {deadline_not_revealed:,} |\n"
         f"| Due in the next 1 day | {deadlines[1]:,} |\n"
         f"| Due in the next 3 days | {deadlines[3]:,} |\n"
         f"| Due in the next 7 days | {deadlines[7]:,} |\n"
@@ -293,10 +294,10 @@ def main() -> int:
         added_7d,
         total,
         fixed_all,
-        deadline_not_revealed,
-        deadline_revealed,
     )
-    deadlines_block = render_deadlines_block(deadlines)
+    deadlines_block = render_deadlines_block(
+        deadlines, deadline_revealed, deadline_not_revealed
+    )
 
     if README_PATH.exists():
         text = README_PATH.read_text()

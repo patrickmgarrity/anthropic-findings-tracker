@@ -8,8 +8,6 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 | Findings added (all-time) | 1,611 |
 | Findings added (last 7 days) | 0 |
 | Findings fixed | 27 |
-| Past 90-day deadline — revealed | 0 |
-| Past 90-day deadline — not yet revealed | 10 |
 <!-- METRICS:END -->
 
 ![Anthropic Findings Over Time](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/cumulative.png)
@@ -17,6 +15,8 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- DEADLINES:START -->
 | Disclosure deadline | Findings |
 | :--- | :---: |
+| Past 90-day deadline — revealed | 0 |
+| Past 90-day deadline — not yet revealed | 10 |
 | Due in the next 1 day | 2 |
 | Due in the next 3 days | 3 |
 | Due in the next 7 days | 8 |
