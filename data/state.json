@@ -1,32 +1,525 @@
 {
-  "entry_count": 1611,
+  "entry_count": 2736,
   "finding_pages": {
-    "ANT-2026-0JRYQPCF": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+    "ANT-2026-09SNWQBT": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-09SNWQBT.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "fb584f1404a2a0a1052e77d55ccc1c472e977bc0c100e7db4587bc590e84162a"
+    },
+    "ANT-2026-0BETG8WD": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0BETG8WD.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-14",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-20",
+        "sent_to_maintainer_at": "2026-05-20"
+      },
+      "sha256": "518451a8f885ba2c240f69f2fa6654984f8b61e67f8188c06864bf687381ece2"
+    },
+    "ANT-2026-0GNNMNPS": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0GNNMNPS.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-06-17",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "938699902b8862a9cb716947b109aa6037b264a6939b4137910feb0e9c91d87c"
+    },
+    "ANT-2026-0HC68EK6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0HC68EK6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-14",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "f92b58c2192d3e1ee672974aa41b5f5b4f81f98053df09584b71625d1b0c600c"
+    },
+    "ANT-2026-0JJXMV3G": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0JJXMV3G.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-04",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "5cb154650e52004e522552cdc21e44a9939f1ce1e1e6c1616442fea57a360293"
+    },
+    "ANT-2026-0JRYQPCF": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0JRYQPCF.",
+        "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "8f6b6d65b2c97d3c961e1e38cebb4a36d150060cf7ecab22c75e98e0da1e466f"
+      "sha256": "4a48560f6e46d13913df6d62b210f0218e042f3ec38994618e0caa888ef83194"
+    },
+    "ANT-2026-0Y1VS937": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-0Y1VS937.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-12",
+        "patch_released_at": "2026-03-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-12"
+      },
+      "sha256": "714b15fa012da880baa74dd24d6ff7fe96d49f71cae7319ec3c2598aa0912b1c"
+    },
+    "ANT-2026-110HTZ5M": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-110HTZ5M.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-04-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-19",
+        "sent_to_maintainer_at": "2026-04-12"
+      },
+      "sha256": "3378fa2f9d14bb1f9ac3ec769d8e9192a2544d4932aafffe1e4aa9853c13458b"
+    },
+    "ANT-2026-125WT6QC": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-125WT6QC.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-25",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "ebcbf6efd639fa37c68452bf36febd6f271110df6a7f8d78aa06bc686332f930"
+    },
+    "ANT-2026-14WRNADB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-14WRNADB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-08",
+        "patch_released_at": "2026-03-22",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-05"
+      },
+      "sha256": "8d874e2943606f9afa39fd52a970aa72bcfee2a407c01df640a36afd7ecc763b"
+    },
+    "ANT-2026-19SGCVZZ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-19SGCVZZ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "fc6ce9137f3a47a38a5d00025182eb7f1d631b94e560670497cce83d526598be"
+    },
+    "ANT-2026-1BCAFJCC": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-1BCAFJCC.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-23",
+        "patch_released_at": "2026-04-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-23"
+      },
+      "sha256": "30a37466123dd228383bb02ecc0500e1a6f9c87e4fb9fbc45d82b6e94aff761e"
+    },
+    "ANT-2026-1FT5E1XF": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-1FT5E1XF.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-31",
+        "patch_released_at": "2026-06-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-06-06"
+      },
+      "sha256": "537a7908976bb290e6910bae80b810170b368f5de14b5b16023f88c4d463332d"
+    },
+    "ANT-2026-1MRWDJYC": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-1MRWDJYC.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-03",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "cf7746095305f166f6b7caaf838db4837e2ef673ee75f0d8668c708919f53f1c"
+    },
+    "ANT-2026-1ZNMP148": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-1ZNMP148.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "6e46dc933f1391100b9a6d2b9df279f9872f94e581a38a354f105638b2422b25"
+    },
+    "ANT-2026-203E7E95": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-203E7E95.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-27",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-21",
+        "sent_to_maintainer_at": "2026-04-27"
+      },
+      "sha256": "09292af9e4ce8a0c82f09ce2b4a1a301967d976bb05f863bcb0faad441f3463c"
+    },
+    "ANT-2026-2BX2DMM1": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-2BX2DMM1.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-25"
+      },
+      "sha256": "bdd49c90ca3614f46373c89680038723a79222ae3952877efe46aadbff0821e4"
+    },
+    "ANT-2026-2FETJP49": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-2FETJP49.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-27",
+        "patch_released_at": "2026-04-06",
+        "publicly_revealed_at": "2026-06-02",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-27"
+      },
+      "sha256": "49e386d3dc77b83dac5fec6ae6deb88a08b2f4943d1cfc7e87df6a536ad068f6"
+    },
+    "ANT-2026-2NNMB24E": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-2NNMB24E.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-30",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "6ee86b4b8747fd15d0ac5583d36fc880a3fbd2a4ad47b75e3bffdbb2ae0f3c3d"
+    },
+    "ANT-2026-3CJT2BP4": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3CJT2BP4.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-30",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "0640dbbde90ed3677f90ea353eb8fae342b09c205b3d41667ede51cc203edb4a"
+    },
+    "ANT-2026-3DSGRTDD": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3DSGRTDD.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-05",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-11"
+      },
+      "sha256": "cb9cc2fd30fa47738fcac0fa71a7559265fd08854953ea8af1c50ec5e4c62816"
+    },
+    "ANT-2026-3JR8RVFB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3JR8RVFB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-03-20",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-20"
+      },
+      "sha256": "7a69471649f8b7772933fa0c8a4ef3b31fe62655caeb777dc94d8eb5030343b3"
+    },
+    "ANT-2026-3M3723P3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3M3723P3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-23",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "d921491915563a5f8373aef7f6dcb2bf0dd09c224682d21a27b5ae7116eb3ec5"
+    },
+    "ANT-2026-3SEPW083": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3SEPW083.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-04-18",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-04-18"
+      },
+      "sha256": "a02e544d097b6f93bc1877da37b04dc49e184ce517dbc54e27ab5b76549a53bc"
+    },
+    "ANT-2026-3T6Q6WE9": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3T6Q6WE9.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-03-23",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-23"
+      },
+      "sha256": "b281857cd0426b8603b427927eed17ce6d9f8829c79f9bf0adb44268d1646101"
+    },
+    "ANT-2026-3ZHWVDTX": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-3ZHWVDTX.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-27",
+        "patch_released_at": "2026-04-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-27"
+      },
+      "sha256": "9ab37434619da2172d6572147bbf292e18b177c8f7d970bc0c52926ca27d183f"
+    },
+    "ANT-2026-45SRWS4Q": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-45SRWS4Q.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-04-06",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-19",
+        "sent_to_maintainer_at": "2026-04-06"
+      },
+      "sha256": "ce27f4d6d4280846f483fa0659d46ee2a8debe51e8e3aa10e1b2b0bc5d54b392"
+    },
+    "ANT-2026-49KSKQPG": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-49KSKQPG.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-06-04",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-29"
+      },
+      "sha256": "85f887743ed266df571f61106cb9ad81776b7d999165cd801018cd6b830c7b21"
+    },
+    "ANT-2026-4PKJCSR8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-4PKJCSR8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "154766f5d4bfc3d82462acaf6c8650e432b3e23f5550fe4f11287906dd34ef22"
+    },
+    "ANT-2026-4YJK1P9J": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-4YJK1P9J.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-05",
+        "patch_released_at": "2026-06-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "2a31a86f38851616ad5a213df53bc45f2661fa62050d9d675e284bc8e70403f3"
+    },
+    "ANT-2026-50T0MN89": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-50T0MN89.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-06",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "83c8279b442969ee52327b4aa17f752799a4934d6acb148ed788f165cab61adf"
+    },
+    "ANT-2026-5BD488PV": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-5BD488PV.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-30",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-31"
+      },
+      "sha256": "207321f569e3c39407729cd8245e7e5c05c545879db33803a04b8a0660955a26"
+    },
+    "ANT-2026-5DFBSQR9": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-5DFBSQR9.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-18",
+        "patch_released_at": "2026-04-20",
+        "publicly_revealed_at": "2026-06-02",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-18"
+      },
+      "sha256": "f00cb93d8e54ee80c8d3a8665c0da21058462f052a7cb58bd738bc32e16f4891"
+    },
+    "ANT-2026-5ETTYD84": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-5ETTYD84.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-06-30",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "6f92af7b7d4247886f5b76980ece91611b94b2bafa9576ea93019f1fee8669c9"
+    },
+    "ANT-2026-5WVCAVEA": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-5WVCAVEA.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-20"
+      },
+      "sha256": "d19ac52d15323d116e852038185d20a888d87ab02bfa88855a212b3aa78e80ae"
+    },
+    "ANT-2026-61Y3NTY3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-61Y3NTY3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-17",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "d34d5cd9fc989157d88761921932282e28d41eb9201b57f0e9ffcf943a0b6ecb"
     },
     "ANT-2026-6615Y595": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6615Y595.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-09",
-        "patch_released_at": "2026-04-08",
+        "patch_released_at": "2026-04-07",
         "publicly_revealed_at": "2026-05-20",
-        "reported_to_tracker_at": "2026-05-20",
+        "reported_to_tracker_at": "2026-05-19",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "f671fc835f0c5225b58c29e015f742c5adc725fd03bf0282b3c0bfec506502de"
+      "sha256": "dcd70f2ea722a3fd41185b85d7ad101e767158de0d831320d5ae08f5845efd7e"
+    },
+    "ANT-2026-669BEQ2W": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-669BEQ2W.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-28",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "d4ef08dc0b0386122189c523198edbfeaa3d171d865de6ca3b1d89368528e95f"
+    },
+    "ANT-2026-66X46XSC": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-66X46XSC.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-07",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "562d20404e563a7904d5f74bd01999c49684bc5ead00ae6ad7ca452478b44e46"
+    },
+    "ANT-2026-69D8H6RP": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-69D8H6RP.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-02-14",
+        "patch_released_at": "2026-02-15",
+        "publicly_revealed_at": "2026-06-02",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-02-14"
+      },
+      "sha256": "d7dea35d568deb56f7f8869345c084565ddcd80d7848924670257b1e2ef099e0"
     },
     "ANT-2026-6DSMTXZ8": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6DSMTXZ8.",
         "discovered_by": "Claude",
@@ -36,23 +529,257 @@
         "reported_to_tracker_at": "2026-03-30",
         "sent_to_maintainer_at": "2026-04-23"
       },
-      "sha256": "856bd417b4e366a4962bc48cf2b46151d9c90761548e2a17f00da0549723a692"
+      "sha256": "7a9ff84de15dad068074166dfe31759d3026f6eb47641dba5f10f0d832f5c403"
+    },
+    "ANT-2026-6FH6D5TF": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6FH6D5TF.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-30",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "f3c3e77ee09dc486220f1dd752a2666cd49b61dc5eba7bcd4faf1573b666d632"
+    },
+    "ANT-2026-6JWE6ZK7": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6JWE6ZK7.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-19",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-21",
+        "sent_to_maintainer_at": "2026-05-19"
+      },
+      "sha256": "d2a18dbbb25270d4df94395374faa2a51dcf6999b316680dbee915c7250a826c"
     },
     "ANT-2026-6SNS6KMP": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6SNS6KMP.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-08",
-        "patch_released_at": "2026-05-05",
+        "patch_released_at": "2026-04-24",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-29"
+      },
+      "sha256": "a758eaf2d1f4a96701648eafefd5c5b7b985bce8511ac00af91f61605c1e453b"
+    },
+    "ANT-2026-6X60WXT0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6X60WXT0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-14",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "d3c6d18347b1f88a868f0d014a1059f6f9017be45dc6c82b60308d839b5f81e9"
+    },
+    "ANT-2026-6YNNSAA0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-6YNNSAA0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-25",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "a71cc0fc8e09b3e722e08ddc3e22b461b91df65b876640f26db60a93b6fa0fe2"
+    },
+    "ANT-2026-7DG11TPA": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-7DG11TPA.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-26",
+        "patch_released_at": "2026-04-07",
+        "publicly_revealed_at": "2026-06-02",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-26"
+      },
+      "sha256": "4bb5fe9122d0636c869ce2dd849e96768c740149d12350cd77ad0a6b4344e358"
+    },
+    "ANT-2026-7R9KHDAS": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-7R9KHDAS.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-16",
+        "patch_released_at": "2026-06-21",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-04-16"
+      },
+      "sha256": "ce2d895d627828c631ac8c38f0f1694ae54aefce1d892cae65e2e7733e99a738"
+    },
+    "ANT-2026-7WJV60DR": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-7WJV60DR.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-08-05",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "94da0072265e8973889c5fd88175489dd3ad192a91ccefb32428aa85f0254e78"
+    },
+    "ANT-2026-7ZJGE8XJ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-7ZJGE8XJ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-20"
+      },
+      "sha256": "666d42601900fe02684ee02486b79921fe831826087a0c4c3fb7081a1737556f"
+    },
+    "ANT-2026-87DJGDRB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-87DJGDRB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-26",
+        "patch_released_at": "2026-06-24",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-03-26"
+      },
+      "sha256": "57f25a44420fe729efe4599f413103db12e5adb3515b6d7d317480850f92558a"
+    },
+    "ANT-2026-8AZGCAHG": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8AZGCAHG.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-28"
+      },
+      "sha256": "3e024b9c7083c0d4dff67c2b49fc77c64741cb12d664f2b0091415b02a59cd2c"
+    },
+    "ANT-2026-8DRZW7VM": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8DRZW7VM.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "3f7abf28efd657a01e8b69c1a4d8bbbbe2c74748047d57eb09e22b28066f7c85"
+    },
+    "ANT-2026-8E67XSC7": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8E67XSC7.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "12aee4b396ccc70bf5920dafff6139d2c7682d81ba2a7277f5ff6bbe60831118"
+    },
+    "ANT-2026-8FZYKRTH": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8FZYKRTH.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "6f449de331820d2557ccb1d73b3858305a54f8bd3aa6906d6b9d584198667c98"
+    },
+    "ANT-2026-8HYRCFKW": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8HYRCFKW.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "60373829432cc9b33330703440cc55170a263aeae146922291b2c3ba420ed464"
+    },
+    "ANT-2026-8QCK7K2C": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8QCK7K2C.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-05-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "ed002a095f6041406b4596bc01c7983725097458acb9b787f09c3f18d8732140"
+    },
+    "ANT-2026-8RX9XHEB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-8RX9XHEB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-06",
+        "patch_released_at": "2026-07-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-24",
         "sent_to_maintainer_at": "2026-05-08"
       },
-      "sha256": "f116497e39cd3dd00a82db82fcb818b8ac177cff1f3ef3155db6c102f969f006"
+      "sha256": "4e3ec615d5a476bd3c73e429bcf6b13208b225c3759b344666ce878a7d8c9776"
+    },
+    "ANT-2026-96NHD13X": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-96NHD13X.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-05",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "49b712e30ee0c1a2ed504dd32b6d1591d23785b5a354fe3759c1dea8be09116d"
+    },
+    "ANT-2026-9R51NPJC": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-9R51NPJC.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-27",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-27"
+      },
+      "sha256": "2a1812b1722ae8b2f2f7ab94ee3022621d195d66f2dff0d4f14bf499628359b4"
     },
     "ANT-2026-9SZMPW41": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-9SZMPW41.",
         "discovered_by": "Claude",
@@ -62,61 +789,384 @@
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-05-07"
       },
-      "sha256": "7764f43d5a9db50fcd37696ae57e710bef832cb61b09159eaf3e6654f480d6bd"
+      "sha256": "4190ccf3e296af9bf105ac382f8edec1c5544976b39fb9094d1514edb5e77a7f"
     },
     "ANT-2026-9VJ9JJXQ": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-9VJ9JJXQ.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-08",
-        "patch_released_at": "2026-02-27",
+        "patch_released_at": "2026-02-26",
         "publicly_revealed_at": "2026-05-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-02-25"
+      },
+      "sha256": "d883cafce19877b7ec044daa4dce01554747196239fe4d32c9117181b4c4dc69"
+    },
+    "ANT-2026-9WB9SMM6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-9WB9SMM6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-23",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-20",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "c81f1ab10d2ae78a6c485e1201548e97a96f2da876006096be728ebf6ec3d16f"
+    },
+    "ANT-2026-A5580GNM": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-A5580GNM.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-12",
+        "sent_to_maintainer_at": "2026-04-16"
+      },
+      "sha256": "45efed09c2e04991b870dcd8c680078b05ae12dcca787e89be1b8931685c40c7"
+    },
+    "ANT-2026-AM0R21ZY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-AM0R21ZY.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-08-09",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "8b16372c76e330197026b47ccabc498be0b1a6395e2b4fe861187ccca36c480e"
+    },
+    "ANT-2026-AYWQW7P2": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-AYWQW7P2.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-06-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-19",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "781ddfb029bcc901c1b9fa649f242f8a3614f72a3781a1145b42bcaa8c78d00c"
+    },
+    "ANT-2026-B324R0JY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-B324R0JY.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-10",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "893963e10a704c855bedd2c53cd74968680c1fd2cdcb45d306ec4020264bf69a"
+    },
+    "ANT-2026-B4Z27MGE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-B4Z27MGE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-08",
+        "patch_released_at": "2026-02-04",
+        "publicly_revealed_at": "2026-07-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-05-08"
       },
-      "sha256": "343db55dfdaed9e71db97f3d4602b3c086d547deb32648f1f3d289e077bad9da"
+      "sha256": "165ff0ec84608a0a1089e1140a2bae3503b34d2e4356fabba0a83fc7c13c679f"
+    },
+    "ANT-2026-B615AQ9E": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-B615AQ9E.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-23",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "601ca7915b8b2ff6cf79ad7e62a16325a1f5e45a83611f3fb394d592c8c5213e"
+    },
+    "ANT-2026-BBV63KVS": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BBV63KVS.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-06",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "06840a742eaa450c2ca09dd53bc59105aa56dea30e18dba951595d22a9f19f09"
+    },
+    "ANT-2026-BDHSQ5GE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BDHSQ5GE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-27",
+        "patch_released_at": "2026-05-05",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-24"
+      },
+      "sha256": "a25d6bb3c55c97fc93b3b9d90fcea7d4f92f2386866ac94633fe27db44f32be2"
+    },
+    "ANT-2026-BH289AV8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BH289AV8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-27",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-27"
+      },
+      "sha256": "10b052122669fb7553966429e402df75706826bb5c87d4f3580cfcd5e3164912"
     },
     "ANT-2026-BRQZSDGZ": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {},
+      "sha256": "82d5056b12999b488552f04cd4e43c63a5a1c91e6c7e13cc37304870a40cdf3a"
+    },
+    "ANT-2026-BT210RQ0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
-        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BRQZSDGZ.",
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BT210RQ0.",
         "discovered_by": "Claude",
-        "patch_released_at": "2026-05-05",
-        "publicly_revealed_at": "2026-05-20",
-        "reported_to_tracker_at": "2026-04-12",
+        "maintainer_acknowledged_at": "2026-04-16",
+        "patch_released_at": "2026-04-21",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-04-16"
+      },
+      "sha256": "c2456d86c9221e5144d9f82f313f659e0288052d1150b1bb06948144b5233014"
+    },
+    "ANT-2026-BTRNT5A3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BTRNT5A3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-05-26",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "4c6e3be2a6896700b1bce57ef2694516db07e1ac806c58ffb892ccafe6133b43"
+    },
+    "ANT-2026-BVDWY3J9": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-BVDWY3J9.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-05-31",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "bd9788f5101d1c11a86bab0cef07c153ee849327ec786796c6f7fa2b2305e0b5"
+    },
+    "ANT-2026-C0BW3XD3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-C0BW3XD3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-06",
+        "patch_released_at": "2026-05-25",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-19"
+      },
+      "sha256": "4420eec631e9e5210c169ad2e1dd2de19e7739346136607400dbb3bcc32f9cbb"
+    },
+    "ANT-2026-C6E98TYX": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-C6E98TYX.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-06-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-31",
         "sent_to_maintainer_at": "2026-05-07"
       },
-      "sha256": "ed20a5e48a82d1b34cad7b289696257305940262001fdef0c42d53ac6c1439a5"
+      "sha256": "5c8768a7c2bb7593aa74df6a6a97c147a2ca9bb9b6cb8e7be49cfcf7da99ca7a"
+    },
+    "ANT-2026-CAH7XGSQ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CAH7XGSQ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-19",
+        "patch_released_at": "2026-03-31",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-20",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "b9c541c73d3acc8519c4f418a01850b9b1955a5ba08213b77c66912d60d210bd"
+    },
+    "ANT-2026-CEP8Y9M0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CEP8Y9M0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-12",
+        "patch_released_at": "2026-03-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-12"
+      },
+      "sha256": "0602301a21c4fe95e72ebcccec76662e1493fae2edb6a1be686d2b6658f4ee3d"
+    },
+    "ANT-2026-CGR7Y3J8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CGR7Y3J8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-13",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "d0c2d2dd7d6295f84bc2b68212f7af18b482b89618b08858aaa2a9ccc3f5810e"
+    },
+    "ANT-2026-CJQWKW82": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CJQWKW82.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-14",
+        "publicly_revealed_at": "2026-07-21",
+        "reported_to_tracker_at": "2026-04-01",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "d59d18e82257e25be22b32d6467d28d9077346e793568c370d5f129660863db7"
+    },
+    "ANT-2026-CM0TCREP": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CM0TCREP.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-29",
+        "patch_released_at": "2026-04-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-29"
+      },
+      "sha256": "5cf63155aba2e12ca77446a74592c85356798d8741e60e2a317943598822ba2f"
     },
     "ANT-2026-CN7KX43N": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {},
+      "sha256": "394415455b3d41e6c8aa8c1b0dcc513bb5cf021907877db36020e78b93f9559b"
+    },
+    "ANT-2026-CT4ZXP4Z": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
-        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CN7KX43N.",
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CT4ZXP4Z.",
         "discovered_by": "Claude",
-        "maintainer_acknowledged_at": "2026-05-07",
-        "patch_released_at": "2026-05-07",
-        "publicly_revealed_at": "2026-05-20",
-        "reported_to_tracker_at": "2026-04-12",
-        "sent_to_maintainer_at": "2026-05-07"
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-13",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
       },
-      "sha256": "596f531ec345338a50cad619de00aea7e8ea6ff83a6b77f8b3dc953c812e3bc2"
+      "sha256": "bd02ab9633c0db0a116c6bd3aeb973efa57ac3929f244b71b8bce4e7715f7f4f"
+    },
+    "ANT-2026-CVX8213H": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-CVX8213H.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-03",
+        "publicly_revealed_at": "2026-07-13",
+        "reported_to_tracker_at": "2026-04-16",
+        "sent_to_maintainer_at": "2026-04-27"
+      },
+      "sha256": "e34410cb32ccf0a263872ef2aac9079166489bcec9b3564d0c9a3df29b637012"
+    },
+    "ANT-2026-D7FC4YDQ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-D7FC4YDQ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-29",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "e9ef8249341d370bb228167bdb76c99a5b53b2260c516bfe5027a964acb0d9be"
+    },
+    "ANT-2026-DD4RKCBA": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-DD4RKCBA.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-25"
+      },
+      "sha256": "b46c8ad6166e1a3d09b988134367bafeebfedd18267db3dcfc6250b12084d662"
     },
     "ANT-2026-DJBBBBPE": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-DJBBBBPE.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-08",
-        "patch_released_at": "2026-04-15",
+        "patch_released_at": "2026-04-01",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
-        "sent_to_maintainer_at": "2026-05-08"
+        "sent_to_maintainer_at": "2026-03-29"
       },
-      "sha256": "1a72a6a3d4fbd63b21bb98faf281b3cf2338a2436857d8c202bb11db48feff85"
+      "sha256": "22f981a869091e0023652ec76693b1f949fb43cefe05853ecea3a59675116117"
+    },
+    "ANT-2026-DVZKVAV1": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-DVZKVAV1.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-04-13",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "0b0f2abfa17a4c3507ae2e3115e72436d5ef0b0d990d7a9f43a3f3bac8c76468"
+    },
+    "ANT-2026-DYWJSTZZ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-DYWJSTZZ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-08-13",
+        "patch_released_at": "2026-03-25",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-25"
+      },
+      "sha256": "727dd45761fdee9b784239030bdcdb267e243976992dbd2088eeba45fd895ab1"
     },
     "ANT-2026-EBDTPNVH": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-EBDTPNVH.",
         "discovered_by": "Claude",
@@ -126,23 +1176,248 @@
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-05-07"
       },
-      "sha256": "dc4d6a592ade9d539e5a520e21dd45d09ed165b9d8e7c4ed50a63074265c3df8"
+      "sha256": "f0f94afa4dd3c23b56d19aae9a0d3cb695e9920b562de82d57d286752792d29f"
     },
-    "ANT-2026-H5T8XKWR": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+    "ANT-2026-EFRBDRNP": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
-        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-H5T8XKWR.",
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-EFRBDRNP.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-11",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "8dd50153ef202d7ce81d11a7d6bf914c9123839419ccd7658cfcbf5106255c8b"
+    },
+    "ANT-2026-F1GCJ0JY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-F1GCJ0JY.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-29",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-31"
+      },
+      "sha256": "538874331d01fa6a1855af2b59c69b3cfbc1002055d4033db3089edb95c0d6ed"
+    },
+    "ANT-2026-F5JK7RDG": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-F5JK7RDG.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-05-21",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "d57e93fd51d174fd4191f9fc33e21641a8728cf88f9e2904b72facdf5c20d846"
+    },
+    "ANT-2026-F8AZ7X04": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-F8AZ7X04.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-01",
+        "patch_released_at": "2026-04-30",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-01"
+      },
+      "sha256": "800b1cd4d7b70be43d158fc538736fab41110f0f7e98cad52d1cbe4adcacd166"
+    },
+    "ANT-2026-FW0V6SAJ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-FW0V6SAJ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-03",
+        "patch_released_at": "2026-06-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-16",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "efbdf70abc19995c1e9cba32206f58d3f9d30383070a497c09a089cafd1e0c65"
+    },
+    "ANT-2026-G1XC2M5V": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-G1XC2M5V.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-08",
-        "patch_released_at": "2026-02-18",
-        "publicly_revealed_at": "2026-05-20",
+        "patch_released_at": "2026-01-19",
+        "publicly_revealed_at": "2026-07-20",
         "reported_to_tracker_at": "2026-03-29",
-        "sent_to_maintainer_at": "2026-05-08"
+        "sent_to_maintainer_at": "2026-01-19"
       },
-      "sha256": "b04349ec3d6cd2a355b5024c8aa9a7fcaf3b28e88cb575d7fa34abbe63f44309"
+      "sha256": "f16d3f663e9e85f99191d282c45da127ba3a8fde81843df808ac12193b963559"
+    },
+    "ANT-2026-G7GNYY68": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-G7GNYY68.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "95e4e5f7bdb3500d3d93eb5491161879dcfd60c86d8f10cd0468f1376cf9e244"
+    },
+    "ANT-2026-GBSMA7AY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GBSMA7AY.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-04-23",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-04-15"
+      },
+      "sha256": "741723668ab6f4bd7c3b674706e4303794b0455ca9866bbfe5c1710e32e053eb"
+    },
+    "ANT-2026-GEM3N3N3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GEM3N3N3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-02-19",
+        "patch_released_at": "2026-04-22",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-02-19"
+      },
+      "sha256": "9a44e38d20ca07ddebf09d0c64f4a6575e1a074e4abf3f32bf1c66556dfa028b"
+    },
+    "ANT-2026-GPA6MCZ6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GPA6MCZ6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-09",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "ac313275dc09d5c926ec5f3feb1f69b77c6f6a2c346adcabdcc651ae576b6462"
+    },
+    "ANT-2026-GQ8G77M4": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GQ8G77M4.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-27",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "e69ec5db8bacad625dbf9b4ed15e9148353f095f58852b5ee2b09c5498817dca"
+    },
+    "ANT-2026-GSDN3H7W": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GSDN3H7W.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-03"
+      },
+      "sha256": "8c1b92c038387caf6aec0be9a56885ce58695d5ce82451f87ef1e39da026153b"
+    },
+    "ANT-2026-GSPVGEYA": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GSPVGEYA.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-04-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-15",
+        "sent_to_maintainer_at": "2026-04-13"
+      },
+      "sha256": "773040f2c2d23ba99377b3729b3ab032723ab2c299d6013cfee1d4a1c2b18666"
+    },
+    "ANT-2026-GSV3GS1G": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GSV3GS1G.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-28",
+        "publicly_revealed_at": "2026-05-28",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-04-23"
+      },
+      "sha256": "1e2b5a068bb4c1c10616a401c4d9fd6ad493655df8a71019e95816383d03343a"
+    },
+    "ANT-2026-GTGXBRXN": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GTGXBRXN.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "2a2797a5715e25fdaecc0a06492a524a92907422794d8d8b688d0383f9647813"
+    },
+    "ANT-2026-GY2SF1XW": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-GY2SF1XW.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-06",
+        "patch_released_at": "2026-06-10",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-06-06"
+      },
+      "sha256": "c25c181af6061f4bafc831c94123e626dc71d0b8ecc26ffc277aaab9cce6e26a"
+    },
+    "ANT-2026-H4RM2RMD": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-H4RM2RMD.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-07-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "17c146c3bad0c901ac39ab0133c223cec06dcce7c0e2911d7b46e8bab48b45f3"
+    },
+    "ANT-2026-H5T8XKWR": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {},
+      "sha256": "652e00aac42b158e43ea4aff4dc7ef52d34cbab4b700068a566208772340e591"
+    },
+    "ANT-2026-H94NCB56": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-H94NCB56.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-03-20",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-20"
+      },
+      "sha256": "b59f4c5aa49706bd42012bbdb61915d372e49b6794e22e9cdb3a6051280309ca"
     },
     "ANT-2026-H97FY6C8": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-H97FY6C8.",
         "discovered_by": "Claude",
@@ -152,10 +1427,49 @@
         "reported_to_tracker_at": "2026-03-24",
         "sent_to_maintainer_at": "2026-04-30"
       },
-      "sha256": "6f21adfa10ad020f3f67333947c70475854b275128cdc21c88b078cad7369966"
+      "sha256": "6e806c0ea053929005e29b15d9cb9fb04e5be70c41a581315ae4c0e7823b6f27"
+    },
+    "ANT-2026-HFGGE6HR": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HFGGE6HR.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-29",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-04-10",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "392c65da90879c44b007bdb33c115241e3508e2b38a19cf07b51affd045dfc30"
+    },
+    "ANT-2026-HHD77M82": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HHD77M82.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-28",
+        "publicly_revealed_at": "2026-05-28",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-04-23"
+      },
+      "sha256": "f7f7fb7b38040efa56306b57aad90c89e318916f63a0d6d66aa22b356163d949"
+    },
+    "ANT-2026-HJ61D4C3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HJ61D4C3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-16",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-10"
+      },
+      "sha256": "59a8a1f9f7ec08aba1d38a911ed7faa8dba1faed2eb7362207463cdf47ca810f"
     },
     "ANT-2026-HN9XZXJ9": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HN9XZXJ9.",
         "discovered_by": "Claude",
@@ -165,22 +1479,126 @@
         "reported_to_tracker_at": "2026-03-24",
         "sent_to_maintainer_at": "2026-04-30"
       },
-      "sha256": "e9bb8050e6bd39ae49f67c7e69904e1b2a0145b2441aa99d3b3c53f19984fc86"
+      "sha256": "4f99b33ab15c9ba46d424a800a05880ee30255b67ae7633a02df0133692b297e"
+    },
+    "ANT-2026-HRZEDXBB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HRZEDXBB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-18",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "65fce4dedda7a208f209a159e9020f7805b53330323ca8e50b04b190a345c67c"
     },
     "ANT-2026-HY56VRSB": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-HY56VRSB.",
         "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-08-20",
         "patch_released_at": "2026-05-20",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-20",
         "sent_to_maintainer_at": "2026-03-20"
       },
-      "sha256": "5f62b6345e1a646d8a36354b75c1af3d19c9f4e3e99dcc4754bcf0783ff13026"
+      "sha256": "f5efb05e1b3e8cc15b4600e5fcccac6c2b490d1b7d371aa7b945a15fc37926a8"
+    },
+    "ANT-2026-J3EVXWDY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-J3EVXWDY.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-27",
+        "patch_released_at": "2026-05-18",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-21",
+        "sent_to_maintainer_at": "2026-04-27"
+      },
+      "sha256": "e122fad323824962074f314f3648c2031bb9f4c26cae10c216eb2076c3a7d5d5"
+    },
+    "ANT-2026-J5P6B5WQ": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-J5P6B5WQ.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-27",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "611b92b0436b55f819c3938e30ba754f169126c9de7b12d298b6e89cf03dda75"
+    },
+    "ANT-2026-JBKARRJ7": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-JBKARRJ7.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-31",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-26"
+      },
+      "sha256": "a5c69743fcceaf143f49bab71910e8989b94e70b540dad5c7e441e58413ca211"
+    },
+    "ANT-2026-JS5D1Z2X": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-JS5D1Z2X.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-05-28",
+        "publicly_revealed_at": "2026-05-28",
+        "reported_to_tracker_at": "2026-04-16",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "6c11bc1675616214d1f7c04c687ae1744eea9a355bea6a8a01bf87c3375783c5"
+    },
+    "ANT-2026-K2T27KG9": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-K2T27KG9.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-07-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-14"
+      },
+      "sha256": "209e874f506e182c024d7630365c3698c094dc579a6140db36dc36b3231d6681"
+    },
+    "ANT-2026-K3APEMB5": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-K3APEMB5.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "f5953f490ca02466e1dcbe971fc50fa0a0bd53ae0e12ff3f055b5ed8057e2fa8"
+    },
+    "ANT-2026-K6DHGAYS": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-K6DHGAYS.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-06-09"
+      },
+      "sha256": "df21edb236c110a5d586ee39adb78fd573df640cbd3204576521bd9ba343b90c"
     },
     "ANT-2026-K8YY7WWS": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
@@ -188,32 +1606,255 @@
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "45d8ed00ed7a6768d56d2aa5b694a234476072ed9305354c3cc3594e23826994"
+      "sha256": "5400ac34ddff1f4da2c5e4488fefecaffd8aca781794c013ca15cb87a6fef008"
+    },
+    "ANT-2026-KC1Y51NF": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-KC1Y51NF.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-19",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-21",
+        "sent_to_maintainer_at": "2026-05-19"
+      },
+      "sha256": "2c7213c64b525a953dd94289c4e8d49d13d260081c6beed0e059c68f4458455a"
     },
     "ANT-2026-KNXJMVYC": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-KNXJMVYC.",
+        "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "c0550b386ded8a16064cb9c3c9172d6739fc232f6274eaf3158df02218bf7c86"
+      "sha256": "259ddeb72d88c22695bcbbd83695d034df97269018302a1c4622bdf9e1b1c24b"
+    },
+    "ANT-2026-KP4YD2Z6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-KP4YD2Z6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-07-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-24",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "3c9ef4c35717d290b68f2ea9a8eea2b4d62351833cf361cf47491fa34ac79012"
+    },
+    "ANT-2026-KRKYEBGE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-KRKYEBGE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-20",
+        "patch_released_at": "2026-05-20",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "438825d7f2661494d22d56eaf72160d2425d3f2703455f5ba38fc207e0b28393"
+    },
+    "ANT-2026-M3T0RBQ8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-M3T0RBQ8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-02-22",
+        "patch_released_at": "2026-03-15",
+        "publicly_revealed_at": "2026-06-30",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-02-22"
+      },
+      "sha256": "ae934af271bcd9308804e82bbeacec90060566c657b7554f9eb0babcf60a3041"
+    },
+    "ANT-2026-M5V8FQ8Z": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-M5V8FQ8Z.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-04",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "f2a3dbd8a13fc767dc06466def2a5765035871ef57b9c3e6589f0580bc62e059"
+    },
+    "ANT-2026-M8R2AWBV": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-M8R2AWBV.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-08",
+        "patch_released_at": "2026-03-04",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-02-16"
+      },
+      "sha256": "fcb76074177b23f07bbba1055c92cbe19864f21838e12535060c5330e2de6080"
+    },
+    "ANT-2026-MAPZGQDY": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-MAPZGQDY.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-07",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "61f85d55c8c6baa6f7821d3a741966a26b0450783363c25e08384bc12069426a"
+    },
+    "ANT-2026-MEXHXGNE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-MEXHXGNE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-04",
+        "patch_released_at": "2026-04-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-16",
+        "sent_to_maintainer_at": "2026-05-04"
+      },
+      "sha256": "5774aa6b8366ff0f32d978828a4ca94c54f152b0cb9a3ae2863cc7edc6a44b50"
+    },
+    "ANT-2026-MHJX7J31": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-MHJX7J31.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-06-10",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "89f28f665e5632b87df33af99819eca9e58d524db3741a90a00322d4f14d98d1"
+    },
+    "ANT-2026-MHV0A2SD": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-MHV0A2SD.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-22",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-21"
+      },
+      "sha256": "305a1bea95214fb883e82cf5339de955942a81f9406d7172e0dd7bbcb65dfc98"
+    },
+    "ANT-2026-MVVACQKN": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-MVVACQKN.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-19",
+        "patch_released_at": "2026-03-25",
+        "publicly_revealed_at": "2026-06-02",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-19"
+      },
+      "sha256": "dbf0f06ceb98d48906ca251458532e72720d9e1bd9ae29f55ad968e4f5ca027a"
+    },
+    "ANT-2026-N0ZPQQQ6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-N0ZPQQQ6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-03",
+        "patch_released_at": "2026-06-05",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "720aefe3996698250cc691d45147ffac00644fd48c30c7675d435a18ef7af06f"
+    },
+    "ANT-2026-N6TD9MF6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-N6TD9MF6.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-06-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-04-16"
+      },
+      "sha256": "a8383a6b01b3acf1ee5171cb61317e64984d7ed41c5f2785a444c037f38232c3"
+    },
+    "ANT-2026-N7D3E5WK": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-N7D3E5WK.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-04-30",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-20",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "3c38250dc73ef631f64b0f20913a49e573e22199b39d9f731d9b33b3f77e55f6"
+    },
+    "ANT-2026-NDBADAT0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-NDBADAT0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-10",
+        "patch_released_at": "2026-06-25",
+        "publicly_revealed_at": "2026-05-28",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-02-25"
+      },
+      "sha256": "13dc71ed1bb2261f9ad27a120e27cdc509583eb3f36a99a07db10aa9e411951d"
+    },
+    "ANT-2026-NGTJ413W": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-NGTJ413W.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-06-09",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "859f8e01ea7f30c28d6490031ec113d11be7fe0c16454927841813a56d49d014"
+    },
+    "ANT-2026-NQ9DPCK0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-NQ9DPCK0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-05",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-11"
+      },
+      "sha256": "1ffadfb807820a9ad260bcb8dcd3a73b443e0f60cff121011e054617f0d99f3f"
     },
     "ANT-2026-P23DVQM2": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-P23DVQM2.",
+        "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "64b379b74c4064a7937fb290a1c3ce3d5eaf48e2885440ca8f5c74c2ebb896e8"
+      "sha256": "74b2a3b9b078d6db5211775956e6ac170802b38ee70d08d00fd75101344d6c07"
     },
     "ANT-2026-P2DWB2SK": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-P2DWB2SK.",
         "discovered_by": "Claude",
@@ -223,34 +1864,342 @@
         "reported_to_tracker_at": "2026-03-30",
         "sent_to_maintainer_at": "2026-04-23"
       },
-      "sha256": "3526dd2892fd69b38ee91b5102c1e0f08f82ab3998bd4c0f20dbcbf2a3ac6cac"
+      "sha256": "f97fefe9cbe48d6d9d0177c747ac8f89d85219f039ed468995af3d0dcf20861e"
+    },
+    "ANT-2026-P7DSVPH6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-P7DSVPH6.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-06-24",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "924429e96b4c1f4c34b226b23f1f653540f857e50c487a08f36f183cd43008ee"
+    },
+    "ANT-2026-PCBAKVPB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PCBAKVPB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-09",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "7c824936ea7d3709165f339f278f0431c4c3c0f8a0a28ab19e620e225d6f8d01"
+    },
+    "ANT-2026-PGRNAV88": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PGRNAV88.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-02-24",
+        "publicly_revealed_at": "2026-05-28",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-02-24"
+      },
+      "sha256": "a0ef7c400e968b7b061ffcaee5469cc61763c755abc22ecdeb5660ab29a3f468"
+    },
+    "ANT-2026-PJV7Z0AR": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PJV7Z0AR.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-07-22",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "3d5e382c62a587d96c94b8b9ac0d7aff522644a2c6eee69f8a9f0eecdf2fde20"
+    },
+    "ANT-2026-PQ3CNCCK": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PQ3CNCCK.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-31",
+        "patch_released_at": "2026-04-06",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-15",
+        "sent_to_maintainer_at": "2026-03-31"
+      },
+      "sha256": "d54d7b771fd402413749fc79f178d681e772fdb0da2471fd51d89a42fe9563db"
+    },
+    "ANT-2026-PVD37V09": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PVD37V09.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-12",
+        "publicly_revealed_at": "2026-07-13",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-12"
+      },
+      "sha256": "4b395a9cfff8c61fe393d118fbfab332ada1e45bd79611e1a813479712c90cd4"
+    },
+    "ANT-2026-PVN0XWJM": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PVN0XWJM.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-06-06",
+        "patch_released_at": "2026-06-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "c6fbd9480edc75c778731429756ed5528dee08f2f862b2cbbc8c1f774b11575d"
+    },
+    "ANT-2026-PVQH654C": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-PVQH654C.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-05",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-11"
+      },
+      "sha256": "bf86d7e3de897d104fb64693f9847d3e499e91a38290626e02941992cb7acf91"
+    },
+    "ANT-2026-Q430PMKE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-Q430PMKE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-02-28",
+        "publicly_revealed_at": "2026-05-29",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-02-28"
+      },
+      "sha256": "e912a42c98bec921b4325bc113f00e8cb344553bbb0c6140cea964f196c03957"
+    },
+    "ANT-2026-Q5A1RHS0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-Q5A1RHS0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-07-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-10",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "5a91bf0884ada2324bd8f10b8fa24e3341159326e6a0bfeca863b15b650e9fd1"
+    },
+    "ANT-2026-QA1CT79B": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "maintainer_acknowledged_at": "2026-04-05",
+        "patch_released_at": "2026-05-21",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-05"
+      },
+      "sha256": "be16a28896c5cfd673394cef975c163e8019a79654d4790c066f55025ac54743"
+    },
+    "ANT-2026-QPYFFTMS": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QPYFFTMS.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "edd8b767c88baa691ee73d6d3a460198dc048201455ea6aa43b7bc1f39e3741e"
+    },
+    "ANT-2026-QQ2P9M9V": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QQ2P9M9V.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-05-28",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "3b6efc57cedb88ee875f489c357556151bd1b8c4069b0c648010ff101c0fe16f"
+    },
+    "ANT-2026-QRHVDRQ1": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QRHVDRQ1.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-08-04",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "4a769f8e5c8e7e77c4289f3716dc50fce666a64df8f9087e5eee7aebe9164bdd"
+    },
+    "ANT-2026-QRPT15J8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QRPT15J8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-29",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "99ff96340f1419027000aa82447580d5ad9624f5e6424dba30f01b9f167a8742"
+    },
+    "ANT-2026-QRYCJNAP": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QRYCJNAP.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-21",
+        "patch_released_at": "2026-05-09",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "3207e40ea5a4781d364223b1d7dd74e0f63e428f790815ee5b686f1d4b86be01"
+    },
+    "ANT-2026-QXNF2N9K": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-QXNF2N9K.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-10",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-04-25"
+      },
+      "sha256": "657e3f08d229165577f3702c024f04ee9ae864b87e9b82fee441f5eaf3fc9940"
+    },
+    "ANT-2026-R8N72JR9": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-R8N72JR9.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "390a93f5fdcb6824103135069fdf3c9dcba5e6a7110e7a75e18bc5ce97011751"
+    },
+    "ANT-2026-REDYDMAE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-REDYDMAE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-05-20",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "1506f14c0dc60357da5568c139ba4fbf0c1400c6be6926e2d290487f9cf03cb0"
+    },
+    "ANT-2026-RPE1YJCH": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-RPE1YJCH.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-04-14",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-04-08",
+        "sent_to_maintainer_at": "2026-04-13"
+      },
+      "sha256": "f17d14ec1dc075a958efc4ceefa55ecf79ec8d5841052e2a1cc0e96c1c70cf78"
     },
     "ANT-2026-RSSMAMA7": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-RSSMAMA7.",
+        "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "f2e1c3b2919648aec70db774f809c36b640635eefcedb771791c2e918af39c03"
+      "sha256": "041b00138604eeb79b1d88b294e567d80fc242a6bf4d3589d86aaa9b7766f61c"
+    },
+    "ANT-2026-RVPC18B1": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-RVPC18B1.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-31",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "8e1590ba3a7d039b1ee42b2115ff7078f92457851a1af039e12e20f26f2097ae"
+    },
+    "ANT-2026-RXSADDFE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-RXSADDFE.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-19",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-10"
+      },
+      "sha256": "3e08d9128e3c66945760f2b04b24e10d0aa65cc6be388c3effacd386baf844f9"
     },
     "ANT-2026-RXYVE4DZ": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-RXYVE4DZ.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-04-30",
-        "patch_released_at": "2026-05-12",
+        "patch_released_at": "2026-05-11",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-24",
         "sent_to_maintainer_at": "2026-04-30"
       },
-      "sha256": "e72b16063b75ce23bcc838002a94d4b30fb07650da57b2babacaee3e5f342f58"
+      "sha256": "1ae0cb40bc055628dc0f25a32205372fedc7699fe867344ce0dc6f0fea898003"
+    },
+    "ANT-2026-S6CB3P3P": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-S6CB3P3P.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-03-26",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-31",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "5100202ae14be52e8d9f0addb1c142ffcd5ed4d1e5582d0167a800cd81ef6fdb"
+    },
+    "ANT-2026-S8PHCV74": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-S8PHCV74.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-09",
+        "sent_to_maintainer_at": "2026-05-19"
+      },
+      "sha256": "10284d4e2d79677414ea16cb188fe3daee35886d856b8fb6238c332dc5696f7e"
     },
     "ANT-2026-SB4PHA43": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-SB4PHA43.",
         "discovered_by": "Claude",
@@ -260,84 +2209,534 @@
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-05-07"
       },
-      "sha256": "6747fbd545565409be6dd67057f0e8de7e93f0b9a54fa0343d4540b3a5b1a52c"
+      "sha256": "6d26f900e92f24f68bd42d75dd556c25693633aa28957bd7e09d3c3783abb65a"
+    },
+    "ANT-2026-SBF8X04Q": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-SBF8X04Q.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-07-01",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "46ccb963c198d4a78572eafdb4df9fa95f8dfd86732768141d5d0fd94c323dab"
+    },
+    "ANT-2026-SC8JK49A": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-SC8JK49A.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-15",
+        "patch_released_at": "2026-05-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "9a4a803335636f45d8c35d4c5bcc285b47efde748b32c8c3604fe27dbc0694f0"
+    },
+    "ANT-2026-SJ7ZVBQB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-SJ7ZVBQB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-19",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-13"
+      },
+      "sha256": "9bc5b4029f9f4e0316cc2acc5d3540be29338b4dcde4e05c336948d61dc18ea7"
+    },
+    "ANT-2026-SXD0NN2P": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-SXD0NN2P.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-04",
+        "patch_released_at": "2026-05-03",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-16",
+        "sent_to_maintainer_at": "2026-05-04"
+      },
+      "sha256": "df94e0b6eea1b42063b18f63606c27f7980bedfff5b2cd9b9c3687f119dd4ba1"
     },
     "ANT-2026-T44WA684": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "maintainer_acknowledged_at": "2026-04-05",
-        "patch_released_at": "2026-04-14",
+        "patch_released_at": "2026-04-13",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "9d8aeabddd69584525769c129f73e6b3347d4947bd26674babf2fce41d2075ef"
+      "sha256": "fe50d2a0bfaabc62be6271e3ed329ea747a997dd82b106f0de959483ba924d49"
+    },
+    "ANT-2026-T6EKK5DB": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-T6EKK5DB.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-30",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "b2ff6e926b28649b89f401edc5a40d7ded6cb58c5d9e6d8eed640357bfea44e9"
+    },
+    "ANT-2026-TJ0ZJHM6": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-TJ0ZJHM6.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-16",
+        "patch_released_at": "2026-05-19",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-10"
+      },
+      "sha256": "1b0334bb18d5b1074962d55d239c9eb6161d3571f569ac834cce3c6924cca4f3"
+    },
+    "ANT-2026-TNDDD6NW": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-TNDDD6NW.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-14",
+        "patch_released_at": "2026-03-15",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-03-14"
+      },
+      "sha256": "fc3bddd1bb9204292a5b6953a7e9dbd7d668eb25f807a215d9286fa5003b025a"
+    },
+    "ANT-2026-TNXYTAEH": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-TNXYTAEH.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-13",
+        "publicly_revealed_at": "2026-07-13",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-25"
+      },
+      "sha256": "b9d043f0d268ed881266b6e28470002bc71307d17d15f24f7f9f46b547db0bc7"
     },
     "ANT-2026-TZQ1KH7E": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-TZQ1KH7E.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-09",
-        "patch_released_at": "2026-03-26",
+        "patch_released_at": "2026-04-01",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-26"
+      },
+      "sha256": "a262764f65615ad98459a4da5c77471b1b4cefbfaf211ba8febd95339300273c"
+    },
+    "ANT-2026-V6YZYDKK": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-V6YZYDKK.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-22",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-22"
+      },
+      "sha256": "faac2a2e9a1884029dcff7673652365f0cb7d0778c347f9638b2009a3f3a7dd0"
+    },
+    "ANT-2026-VN61PHA0": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-VN61PHA0.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-07-07",
+        "patch_released_at": "2026-07-12",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-30",
         "sent_to_maintainer_at": "2026-05-07"
       },
-      "sha256": "dfc961f55b494d5ae3229ee4008d139579a0bcf15869ca5c1452e3c35fbc8a91"
+      "sha256": "5be1b32811e513423c1086a3785e3ad23b8f69f03339edc557691fd7617df2b6"
     },
     "ANT-2026-VS18SA90": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {},
+      "sha256": "4182f06e499fbaa5734f445d4c912c45c275401ea1378877ecb56403af46ec33"
+    },
+    "ANT-2026-VTJ2W5KM": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
-        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-VS18SA90.",
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-VTJ2W5KM.",
+        "discovered_by": "Claude",
+        "patch_released_at": "2026-05-30",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-31"
+      },
+      "sha256": "6fa2ac620fa5f7047d992ae3c86efd66f1b310def574f51bbfe61024631778ea"
+    },
+    "ANT-2026-VV0PRKKV": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-VV0PRKKV.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-03-26",
+        "patch_released_at": "2026-04-08",
+        "publicly_revealed_at": "2026-05-21",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-03-27"
+      },
+      "sha256": "833bebc425478e2df6ebecec5b11dfeeae65085f3f320be822a25207d32b460f"
+    },
+    "ANT-2026-VVPEMVDE": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-VVPEMVDE.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
-        "publicly_revealed_at": "2026-05-20",
+        "publicly_revealed_at": "2026-07-20",
         "reported_to_tracker_at": "2026-03-29",
-        "sent_to_maintainer_at": "2026-04-05"
+        "sent_to_maintainer_at": "2026-04-09"
       },
-      "sha256": "bd22a9078a26c0a2d0caebd758345988b95b5428c19b08e3481fb6ebb97d200d"
+      "sha256": "660f51999ea4e758960537a827f20ec79c3b8cb8f6e3dc28c5d7d9fa11acc401"
     },
-    "ANT-2026-VV0PRKKV": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+    "ANT-2026-W77T9B29": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
-        "maintainer_acknowledged_at": "2026-03-27",
-        "patch_released_at": "2026-05-21",
-        "publicly_revealed_at": "2026-05-21",
-        "reported_to_tracker_at": "2026-03-27",
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-W77T9B29.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-23",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "ec1a1f33c84e69bb95f4bcb56dd7e56221df6dc856b6eeb9b2568052b5fac279"
+    },
+    "ANT-2026-WCSVRYAX": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-WCSVRYAX.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-17",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-04-29"
+      },
+      "sha256": "75ac72cd31b7a343a5632ce8c8f5f8c39d7843645161174b4a7ad9f1bb5bebc8"
+    },
+    "ANT-2026-WG9N02WM": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-WG9N02WM.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-30",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "7d0af5b17531cbfb95ca1720623620e47934be1ee395b055a06b8ca09adf32ed"
+    },
+    "ANT-2026-WNRZ9D35": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-WNRZ9D35.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-28"
+      },
+      "sha256": "305732410e03bab1db4a7a9681a43d9e196d855c73e17e13dd4b191bc6333460"
+    },
+    "ANT-2026-WQ7HHBE1": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-WQ7HHBE1.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-05-12",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "71cea59264c8631f8c270306a1b8f3e635aaa55257a12be1cceee381cf618ef0"
+    },
+    "ANT-2026-X3EB6DN3": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-X3EB6DN3.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-21",
+        "patch_released_at": "2026-06-19",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-20",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "7f3c7e483a0677de40a724ea262064cdc6be36b87818158aa3b5fc6dfd71ccae"
+    },
+    "ANT-2026-XBE9HJ4Y": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XBE9HJ4Y.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-09",
+        "patch_released_at": "2026-05-18",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-30",
+        "sent_to_maintainer_at": "2026-04-23"
+      },
+      "sha256": "10e8a38f10252a8d2e232deca5ef4f09f71725bfe1c7cd5ac1c3a77e7e573cab"
+    },
+    "ANT-2026-XGXD0ZVD": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XGXD0ZVD.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-13",
+        "patch_released_at": "2026-06-05",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-11"
+      },
+      "sha256": "8140922f75389c2d17bd687e4cf31b02edcb43a91785bc350bb38d7bbeb826be"
+    },
+    "ANT-2026-XJKJSANG": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XJKJSANG.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-06-02",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "9532d14c6c07273240b1949544d2a134ea87998f20f5e3270e9ac31285b3e308"
+    },
+    "ANT-2026-XKHM3P45": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XKHM3P45.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-04-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-26",
+        "sent_to_maintainer_at": "2026-05-08"
+      },
+      "sha256": "1f02a5ee33f8411aec5d3fde39aaea8eeeac48b1442c9274d8f753d83f3ad29c"
+    },
+    "ANT-2026-XKHXVCFV": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XKHXVCFV.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-07-28",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "07ce778ac2b7a64a525f939f66d5547f427f6263692040071445042aa4e3718f"
+    },
+    "ANT-2026-XV1EVAMH": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-XV1EVAMH.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-06-14",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "eb0bac79a2e0588ef18abff57136c300e8b83ba9ecf08970a18adc57a2d8cdda"
+    },
+    "ANT-2026-Y9HESEM8": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-Y9HESEM8.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-14",
+        "patch_released_at": "2026-08-09",
+        "publicly_revealed_at": "2026-08-18",
+        "reported_to_tracker_at": "2026-05-14",
+        "sent_to_maintainer_at": "2026-05-15"
+      },
+      "sha256": "fa52f9a0fcdb0a6842916b65841eeea7ffc68fd7dfb1c4bdfe0217482fdba843"
+    },
+    "ANT-2026-YMN2QG55": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-YMN2QG55.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-07-01",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "114692cef397f235067354b3f4beff369bcb8b0d78a32e33f6b7584cad916d63"
+    },
+    "ANT-2026-YN5QG0SH": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-YN5QG0SH.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-06-14",
+        "publicly_revealed_at": "2026-07-08",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "bc44ba67eeb7f45be2181b4cfcf82a8f7efa455c5ad2bb7a2d77e2059ef5e778"
+    },
+    "ANT-2026-YQ12XT7Y": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-YQ12XT7Y.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-12",
+        "patch_released_at": "2026-05-08",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-05-07"
+      },
+      "sha256": "8fe0654b000e462ff43cc87c2a48cad355b4f79b1291b3aee5368fd1958df3c7"
+    },
+    "ANT-2026-YZAKBHEW": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-YZAKBHEW.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-04-30",
+        "patch_released_at": "2026-06-11",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-24",
+        "sent_to_maintainer_at": "2026-04-30"
+      },
+      "sha256": "eb3198585f0fd2d5eec25c4778f63f63701a3497fe1797b1f6ca843824d7fe3e"
+    },
+    "ANT-2026-Z3GGGKM5": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-Z3GGGKM5.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-28",
+        "patch_released_at": "2026-04-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-04-21",
+        "sent_to_maintainer_at": "2026-05-28"
+      },
+      "sha256": "a4c79482fac6f95edaf68e81f7e9b89f6e8fb4ee814b07f3ef4cb108b820e20e"
+    },
+    "ANT-2026-Z477W54M": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-Z477W54M.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-07",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-07-20",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "cf2630a891ac77862e68c6ceac81367d51b316282953dfa72fedfbbb2cc35c2c"
+    },
+    "ANT-2026-ZGY30A9P": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZGY30A9P.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-27",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-03-27"
       },
-      "sha256": "fed6f9d50584744ba473004c5d1af53e0f541c54c636793b9dd7737375ca7f17"
+      "sha256": "7f4e8dc8dfc2410f1b2b277dec5bd578f8b1374ac6e4c7c8cc9c4c54d1cd983a"
+    },
+    "ANT-2026-ZJXVWQEA": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZJXVWQEA.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-05-07",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-04-09"
+      },
+      "sha256": "d00b6aefbcd348fd39996ca9c8a94a65368bb6c9441b998dbda0011098c398af"
     },
     "ANT-2026-ZQ8AY22X": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
         "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZQ8AY22X.",
         "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-08",
-        "patch_released_at": "2026-03-16",
+        "patch_released_at": "2026-02-18",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-02-18"
+      },
+      "sha256": "6a6a29966310635c9c1b2591031328c6cdaef0f2e37456f94e3c2a6220cb8983"
+    },
+    "ANT-2026-ZRDQDR79": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZRDQDR79.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-06-16",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-20",
         "sent_to_maintainer_at": "2026-05-08"
       },
-      "sha256": "41b672ec49bac3fbb3e1dbb80d7c53c43f763103aa7050bb29fe1dc4f2d63f47"
+      "sha256": "88e22558b003182812240b47043254b6e03878d8775c39f4e7afa4f481f67cac"
+    },
+    "ANT-2026-ZYEZKB5Y": {
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
+      "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZYEZKB5Y.",
+        "discovered_by": "Claude",
+        "maintainer_acknowledged_at": "2026-05-09",
+        "patch_released_at": "2026-03-29",
+        "publicly_revealed_at": "2026-08-17",
+        "reported_to_tracker_at": "2026-03-29",
+        "sent_to_maintainer_at": "2026-03-25"
+      },
+      "sha256": "a620178c118c437f3f0908fc5d29926098f7ba227aba99ef9481e7877e30691b"
     },
     "ANT-2026-ZZY4987K": {
-      "fetched_utc": "2026-06-15T16:52:47+00:00",
+      "fetched_utc": "2026-08-27T05:31:03+00:00",
       "fields": {
+        "acknowledgement": "This vulnerability was discovered by Claude, Anthropic's AI assistant, and triaged by the Anthropic security team in collaboration with Anthropic Research. Please direct questions to security-cvd@anthropic.com and reference ANT-2026-ZZY4987K.",
+        "discovered_by": "Claude",
         "maintainer_acknowledged_at": "2026-05-07",
         "patch_released_at": "2026-05-07",
         "publicly_revealed_at": "2026-05-20",
         "reported_to_tracker_at": "2026-03-29",
         "sent_to_maintainer_at": "2026-04-05"
       },
-      "sha256": "b10bdb7509b55b24b3fc171920421d8961cce4f370074ba58af8ca0b1e77dbfa"
+      "sha256": "4305205a74cb1ec42a4b8e674a9682be04e352b70fdcf736f6b5d75ff34a3a5c"
     }
   },
-  "last_change_utc": "2026-05-26T00:42:27+00:00",
-  "last_run_utc": "2026-08-26T19:29:19+00:00",
-  "ledger_etag": "\"cf165d3cd77d4f3a038034073bd3dfc4\"",
-  "ledger_sha256": "e24527767fe70e97df3cd871acf29518c719cc388be11ee071d79e06f4ddfaaf",
-  "payload_etag": "\"e74005c2d9c7477e5e2551f6bad03cf6\""
+  "last_change_utc": "2026-08-27T05:31:03+00:00",
+  "last_run_utc": "2026-08-27T05:31:03+00:00",
+  "ledger_etag": "\"41f7c8e0004ec40274717688b1c94489\"",
+  "ledger_sha256": "55ac273beffb46f3c7e53f5f7cac156ab0d88a26697d946b68c5c374b8ef3670",
+  "payload_etag": "\"d97d82f7eefd13cba9e4035f282221a7\""
 }
