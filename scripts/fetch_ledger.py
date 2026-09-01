@@ -89,6 +89,11 @@ CSV_COLUMNS = [
     "committed_at",               # date the hash was committed to the ledger
     "revealed_at",                # date identifier/project/etc were revealed
     "patched_at",                 # date patch landed upstream (from ledger.json)
+    "withdrawn",                  # bool -- retracted while still a sealed commitment
+    "withdrawn_reason",           # duplicate / mistake / false_positive / out_of_scope / rejected_not_sec / report_withdrawn
+    "withdrawn_at",               # date of withdrawal (populated for post-reveal retractions)
+    "merged_into",                # id this entry was merged into, if any
+    "superseded_by",              # id that supersedes this entry, if any
     # Timeline dates parsed from the per-finding page (revealed entries only):
     "reported_to_tracker_at",
     "sent_to_maintainer_at",
@@ -510,6 +515,11 @@ def normalize(
         "committed_at": entry.get("committed_at") or "",
         "revealed_at": entry.get("revealed_at") or "",
         "patched_at": entry.get("patched_at") or "",
+        "withdrawn": bool(entry.get("withdrawn")),
+        "withdrawn_reason": entry.get("withdrawn_reason") or "",
+        "withdrawn_at": entry.get("withdrawn_at") or "",
+        "merged_into": entry.get("merged_into") or "",
+        "superseded_by": entry.get("superseded_by") or "",
         "reported_to_tracker_at": details.get("reported_to_tracker_at", ""),
         "sent_to_maintainer_at": details.get("sent_to_maintainer_at", ""),
         "patch_released_at": details.get("patch_released_at", ""),
@@ -553,6 +563,11 @@ CREATE TABLE IF NOT EXISTS advisories (
     committed_at TEXT,
     revealed_at TEXT,
     patched_at TEXT,
+    withdrawn INTEGER,
+    withdrawn_reason TEXT,
+    withdrawn_at TEXT,
+    merged_into TEXT,
+    superseded_by TEXT,
     reported_to_tracker_at TEXT,
     sent_to_maintainer_at TEXT,
     patch_released_at TEXT,
@@ -595,6 +610,8 @@ TRACKED_FIELDS_FOR_DIFF = [
     "status", "reveal_tier", "revealed", "vendor_confirmed",
     "passed_triage", "was_disclosed", "patched", "is_fixed_in_response",
     "committed_at", "revealed_at", "patched_at",
+    "withdrawn", "withdrawn_reason", "withdrawn_at",
+    "merged_into", "superseded_by",
     "reported_to_tracker_at", "sent_to_maintainer_at", "patch_released_at",
     "maintainer_acknowledged_at", "publicly_revealed_at",
     "discovered_by", "acknowledgement",
@@ -612,7 +629,7 @@ def open_db() -> sqlite3.Connection:
     existing_cols = {row[1] for row in conn.execute("PRAGMA table_info(advisories)")}
     integer_cols = {
         "revealed", "vendor_confirmed", "passed_triage",
-        "was_disclosed", "patched", "is_fixed_in_response",
+        "was_disclosed", "patched", "is_fixed_in_response", "withdrawn",
     }
     for col in CSV_COLUMNS:
         if col in existing_cols:
