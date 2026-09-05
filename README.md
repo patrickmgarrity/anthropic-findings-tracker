@@ -1,7 +1,7 @@
 This project tracks anthropics findings reported on the [Anthropic disclosure ledger](https://red.anthropic.com/2026/cvd/ledger/) for research purposes. It collects data from the ledger and generates several data formats including csv and json along with a changelog from each run.
 
 <!-- METRICS:START -->
-**Days since last change:** 3 | **Days since last addition:** 9
+**Days since last change:** 3 | **Days since last addition:** 10
 
 | Metric | Findings |
 | :--- | :---: |
@@ -15,12 +15,12 @@ This project tracks anthropics findings reported on the [Anthropic disclosure le
 <!-- DEADLINES:START -->
 | Disclosure deadline | Findings |
 | :--- | :---: |
-| Past 90-day deadline — revealed | 210 |
-| Past 90-day deadline — not yet revealed | 1,521 |
-| Due in the next 1 day | 3 |
-| Due in the next 3 days | 8 |
-| Due in the next 7 days | 9 |
-| Due in the next 30 days | 10 |
+| Past 90-day deadline — revealed | 212 |
+| Past 90-day deadline — not yet revealed | 1,522 |
+| Due in the next 1 day | 0 |
+| Due in the next 3 days | 5 |
+| Due in the next 7 days | 6 |
+| Due in the next 30 days | 7 |
 <!-- DEADLINES:END -->
 
 ![90-Day Disclosure Deadline vs. Patch Released](https://github.com/patrickmgarrity/anthropic-findings-tracker/blob/main/data/disclosure.png)
