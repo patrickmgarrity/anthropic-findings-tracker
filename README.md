@@ -1,7 +1,7 @@
 This project tracks anthropics findings reported on the [Anthropic disclosure ledger](https://red.anthropic.com/2026/cvd/ledger/) for research purposes. It collects data from the ledger and generates several data formats including csv and json along with a changelog from each run.
 
 <!-- METRICS:START -->
-**Days since last change:** 19 | **Days since last addition:** 26
+**Days since last change:** 20 | **Days since last addition:** 26
 
 | Metric | Findings |
 | :--- | :---: |
