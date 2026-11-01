@@ -5,7 +5,7 @@
   <rect width="100%" height="100%" fill="#0f0f0f"/>
 
   <text x="24" y="26" fill="#eaeaea" font-size="16" font-weight="700">Anthropic Mythos ledger — findings by status</text>
-  <text x="24" y="44" fill="#9a9a9a" font-size="11">6,597 findings  ·  generated 2026-11-01T02:58:22+00:00</text>
+  <text x="24" y="44" fill="#9a9a9a" font-size="11">6,597 findings  ·  generated 2026-11-01T12:12:49+00:00</text>
 
   <path d="M 218.00 226.00 L 218.00 64.00 A 162.00 162.00 0 1 1 122.62 95.06 Z" fill="#6aa9ff" stroke="#0f0f0f" stroke-width="2"/><path d="M 218.00 226.00 L 122.62 95.06 A 162.00 162.00 0 0 1 155.62 76.49 Z" fill="#ff6f5e" stroke="#0f0f0f" stroke-width="2"/><path d="M 218.00 226.00 L 155.62 76.49 A 162.00 162.00 0 0 1 187.78 66.84 Z" fill="#4ade80" stroke="#0f0f0f" stroke-width="2"/><path d="M 218.00 226.00 L 187.78 66.84 A 162.00 162.00 0 0 1 217.69 64.00 Z" fill="#c084fc" stroke="#0f0f0f" stroke-width="2"/><path d="M 218.00 226.00 L 217.69 64.00 A 162.00 162.00 0 0 1 218.00 64.00 Z" fill="#fbbf24" stroke="#0f0f0f" stroke-width="2"/>
   <text x="249.10" y="325.50" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">90.0%</text>
